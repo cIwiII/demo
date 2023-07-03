@@ -1,0 +1,33 @@
+.bgimg {
+  width: 100%;
+  min-height: 42rem;
+  height: 100vh;
+  background-image: url(../img/login-bg.jpg);
+  background-position: 50% 60%;
+  background-size: cover;
+  position: relative;
+}
+.bgimg .logReg {
+  width: 30rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background-color: #ebebd1;
+  position: absolute;
+  right: 20%;
+  top: 10%;
+}
+.bgimg .logReg img {
+  width: 15rem;
+  margin: 1rem 0 2rem 5rem;
+}
+.bgimg .logReg .forget {
+  display: flex;
+  justify-content: space-between;
+}
+.bgimg .logReg .lg {
+  margin-left: 8rem;
+}
+.bgimg .logReg .lg .lging {
+  font-size: 1rem;
+  display: inline-block;
+}

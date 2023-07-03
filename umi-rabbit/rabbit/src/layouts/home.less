@@ -1,0 +1,127 @@
+#components-layout-demo-custom-trigger .trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
+}
+
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.sider {
+  .menu {
+    height: calc(100vh - 64px);
+    min-height: 200px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+
+  .menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .logo {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    height: 32px;
+    overflow: hidden;
+
+    img {
+      width: 32px;
+      height: 15px;
+      margin: 10px 15px 0 20px;
+    }
+
+    .car {
+      color: #fff;
+      font-size: 20px !important;
+      font-weight: 800;
+    }
+  }
+}
+
+.rightCon {
+  height: 100vh;
+  min-height: 200px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  .Header {
+    min-width: max-content;
+    box-shadow: 3px 0 4px 3px #E5E6EB;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    margin-right: 10px;
+    position: relative;
+    z-index: 4;
+    .userInfo {
+      width: 170px;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      position: relative;
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        margin-right: 10px;
+      }
+      .layuser{
+        position: absolute;
+        display: none;
+        bottom: -143px;
+        left: 30px;
+        width:140px;
+        div{
+          height: 13px;
+          background-color: transparent;
+        }
+        ul{
+          list-style: none;
+          line-height: 30px;
+          text-align: left;
+          padding: 0;
+          background-color: #fff;
+          box-shadow: 0 0 3px 2px #ebe9e9;
+          li{
+            padding-left: 10px;
+          }
+          .li3{
+            border: 1px solid #ebe9e9;
+            margin: 0 -1px;
+          }
+        }
+      }
+    }
+    .userInfo:hover{
+      .layuser{
+        display: block;
+      }
+    }
+
+  }
+  .content {
+    margin: 10px ;
+    margin-right: -5px;
+    padding:0 20px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+
+}
+.rightCon::-webkit-scrollbar {
+  display: none;
+}
