@@ -1,0 +1,32 @@
+<!-- 商品列表页面需要使用Tabs组件来进行切换 -->
+<tabs tabs="{{tabs}}" bindchangeIndexTabs="changeIndexTabs">
+    <view wx:if="{{tabs[0].isActive==true}}" slot="listslot">
+        <view class="products">
+            <view 
+            wx:for="{{productList}}"
+            :key="_id"
+            class="item">
+                <!-- 每个商品点击后都可以跳转详情 -->
+                <navigator url="/pages/goods_detail/index">
+                    <view class="picture">
+                        <!-- 有些商品没有图片 -->
+                        <image class="" src="{{item.goods_small_logo?item.goods_small_logo:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix"></image>
+                    </view>
+                    <view class="text">
+                        <view class="msg">{{item.goods_name}}</view>
+                        <view class="hot">限购2件</view>
+                        <view class="buy">
+                            <text>￥{{item.goods_price}}</text>
+                            <!-- 小图标 -->
+                            <!-- 要使用字体图标 iconfont 图标名字 -->
+                            <text data-params="{{item}}" bindtap="addCart" class="iconfont icon-gouwuche"></text>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view wx:elif="{{tabs[1].isActive==true}}" slot="listslot">
+        热门商品默认一行排列一个
+    </view>
+</tabs>

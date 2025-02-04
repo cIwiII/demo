@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间分片2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .list {
+            width: 60vw;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <!--  Api requestIdleCallback 以及ES6 API Generator来实现。 -->
+    <ul class="list"></ul>
+    <script>
+        'use strict'
+        function gen(task) {
+            requestIdleCallback(deadline => {
+                let next = task.next()
+                while (!next.done) {
+                    if (deadline.timeRemaining() <= 0) {
+                        gen(task)
+                        return
+                    }
+                    next = task.next()
+                }
+            })
+        }
+        let list = document.querySelector('.list')
+        let total = 100000
+        function* loop() {
+            for (let i = 0; i < total; ++i) {
+                let item = document.createElement('li')
+                item.innerText = `我是${i}`
+                list.appendChild(item)
+                yield
+            }
+        }
+        gen(loop())
+    </script>
+
+</body>
+
+</html>

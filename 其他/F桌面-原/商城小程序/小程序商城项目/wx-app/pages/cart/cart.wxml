@@ -1,0 +1,40 @@
+<!-- 购物车标题 -->
+<view class="carTitle iconfont icon-all-fill">购物车</view>
+<!-- 购物车商品信息 -->
+<scroll-view scroll-y="true">
+  <checkbox-group  bindchange="checkboxChange">
+    <view class="cartA" wx:for="{{cart}}" wx:key="_id">
+      <checkbox class="" value="{{item._id}}" checked="{{item.is_promote=='true'}}">
+      </checkbox>
+      <image class="img" src="{{item.goods_big_logo}}" mode="widthFix"> </image>
+      <view class="right" hover-class="none" hover-stop-propagation="false">
+        <view class="text" selectable="false" space="false" decode="false"
+          >{{item.goods_name}}</view
+        >
+        <view class="redborder">正在热销</view>
+        <view class="bottom">
+          <view class="red">
+            {{item.goods_price}}
+          </view>
+          <view class="center"> 
+            <view class="btn" data-index="{{index}}" data-params="-1" bindtap="changeNumber">-</view>
+                    <view class="ant">
+                        {{item.number}}
+                    </view>
+                    <view class="btn" data-index="{{index}}" data-params="1" bindtap="changeNumber">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </checkbox-group>
+</scroll-view>
+<!-- 购物车总价计算 -->
+<view class="allChiose">
+  <view>
+    <checkbox-group  bindchange="allChooseChange">
+     <checkbox class="" value="全选" checked="{{allChoose}}" bindass="sad"> </checkbox>全选 
+     </checkbox-group>
+  </view>
+  <view>合计$:<text class="totalPriceColor">{{totalPrice}}</text></view>
+  <view class="accounts">去结算</view>
+</view>

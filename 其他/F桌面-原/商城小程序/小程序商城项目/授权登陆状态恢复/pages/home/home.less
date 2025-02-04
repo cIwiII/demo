@@ -1,0 +1,58 @@
+.banner{
+    swiper{
+        // swiper默认有150px像素的大小
+        // 实际图片在页面117 图片 1125 * 253  计算出swiper高度
+        height: calc(100vw * 352 / 1125);
+        image{
+            width: 100%;
+        }
+    }
+}
+
+
+// 分类样式
+// 分类信息模块
+.category{
+    padding: 15rpx;
+    display: flex;
+    flex-wrap: wrap;
+    .type{
+        width: 25%;
+        image{
+            width: 90%;
+        }.title{
+            text-align:center;
+            font-size: 12px;
+        }
+    }
+}
+
+// 滑动模块样式
+// 推荐产品
+.page-section{
+    background-color: white;
+}
+.page-section-title{
+    text-align:center;
+    line-height: 60rpx;
+    font-size: 28rpx;
+}
+.page-section-spacing{
+    margin-top: 60rpx;
+  }
+  .scroll-view_H{
+    white-space: nowrap;
+  }
+  .scroll-view-item{
+    height: 300rpx;
+  }
+  .scroll-view-item_H{
+    display: inline-block;
+    width: 100%;
+    height: 400rpx;
+    padding: 10rpx;
+    box-sizing: border-box;
+    image{
+        width: 100%;
+    }
+  }

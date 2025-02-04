@@ -1,0 +1,630 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.top {
+  width: 100%;
+  height: 40px;
+  background-color: #f0f0f0;
+
+  .center {
+      width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 40px;
+
+      .left {
+          color: #9a9a9a;
+          font-size: 14px;
+      }
+
+      .right {
+          a {
+              color: #9a9a9a;
+              margin: 0;
+              text-decoration: none;
+              font-size: 14px;
+              padding: 0 20px;
+              border-right: 1px solid #9a9a9a;
+
+          }
+
+          .a1 {
+              border: 0;
+          }
+      }
+  }
+}
+
+// 注册模态框
+#exampleModal1 {
+  .modal-dialog {
+      width: 400px;
+      .modal-content {
+          padding: 10px 40px;
+          .modal-header {
+              position: relative;
+              border: 0;
+              padding: 0;
+              border-bottom: 1px solid #d8d8d8;
+
+              ul {
+                  li {
+                      a {
+                          color: #333;
+                          background-color: white;
+                          padding: 10px;
+                          padding-bottom: 0;
+                      }
+                  }
+              }
+              button {
+                  position: absolute;
+                  top: 6px;
+                  right: -24px;
+                  width: 40px;
+                  height: 40px;
+                  background-color: #222320;
+                  border-bottom-left-radius: 40px;
+                  span {
+                      position: absolute;
+                      top: -6px;
+                      left: 13px;
+                      color: white;
+                      font-size: 35px;
+                      font-weight: 300;
+                  }
+              }
+
+          }
+
+          .modal-body {
+              padding: 0;
+              margin-top: 10px;
+
+              #pills-profile {
+                  input {
+                      width: 100%;
+                      height: 46px;
+                      margin-top: 20px;
+                      background-color: #f4f4f4;
+                      border: 1px solid #d8d8d8;
+                      border-radius: 7px;
+
+                      &::-moz-placeholder {
+                          font-size: 14px;
+                          color: #a0a0a0;
+                      }
+                  }
+                  .regsta{
+                      width: 198px;
+                      height: 30px;
+                  }
+
+                  button {
+                      margin-top: 30px;
+                      width: 100%;
+                      height: 46px;
+                      border-radius: 7px;
+                      background-color: #f99135;
+                      border: 0;
+                      color: white;
+                      font-size: 20px;
+                  }
+
+                  .user {
+                      padding: 20px 0;
+                      font-size: 14px;
+                      text-align: right;
+
+                      a {
+                          text-decoration: none;
+                          color: #f99135;
+                      }
+                  }
+
+              }
+
+              #pills-home {
+
+                  .in1,
+                  .in2 {
+                      width: 100%;
+                      height: 46px;
+                      margin-top: 20px;
+                      background-color: #f4f4f4;
+                      border: 1px solid #d8d8d8;
+                      border-radius: 7px;
+                  }
+
+                  .a1 {
+                      margin-top: 20px;
+                      margin-bottom: 20px;
+
+                      a {
+                          float: right;
+                          color: #f99135;
+                          text-decoration: none;
+                      }
+                  }
+
+                  .bor {
+                      width: 100%;
+                      border-bottom: 1px solid #d8d8d8;
+                  }
+
+                  .ck1 {
+                      margin-top: 25px;
+                      margin-bottom: 30px;
+
+                      input {
+                          font-size: 12px;
+                      }
+
+                      span {
+                          font-size: 12px;
+                      }
+                  }
+
+                  button {
+                      width: 100%;
+                      height: 46px;
+                      border-radius: 7px;
+                      background-color: #f99135;
+                      border: 0;
+                      color: white;
+                      font-size: 20px;
+                      margin-top: 30px;
+                  }
+
+              }
+
+
+          }
+
+
+
+      }
+  }
+
+
+}
+
+.header {
+  height: 90px;
+
+  .center {
+      width: 1200px;
+      margin: 0 auto;
+      height: 90px;
+      display: flex;
+
+      .left {
+          width: 30%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+
+          .icon {
+              width: 10px;
+              height: 20px;
+              background-image: url(../img/zy_06.png);
+              background-position: 0 5px;
+              margin-left: 5px;
+          }
+
+          span {
+              margin-left: 15px;
+              font-size: 14px;
+          }
+      }
+
+      .cen {
+          height: 100%;
+          width: 50%;
+
+          ul {
+              margin: 0;
+              padding: 0;
+              width: 100%;
+              height: 100%;
+              list-style: none;
+              color: #333;
+              display: flex;
+
+              li {
+                  height: 100%;
+                  display: flex;
+
+                  a {
+                      font-size: 18px;
+                      height: 90px;
+                      padding: 0 22px;
+                      line-height: 90px;
+                      color: #333;
+                      text-decoration: none;
+
+                      &:hover {
+                          background-color: #f99135;
+                          color: white;
+                      }
+
+
+                  }
+              }
+
+          }
+      }
+
+      .right {
+          width: 20%;
+          display: flex;
+          align-items: center;
+
+          .search {
+              height: 44px;
+              width: 100%;
+              border: 2px solid #f99135;
+              border-radius: 22px;
+          }
+
+          .bt1 {
+              height: 44px;
+              border-radius: 22px;
+              width: 30%;
+              border: 2px solid #f99135;
+              background-color: #f99135;
+              margin-left: -33px;
+              background-image: url(../img/zy0_06.png);
+              background-repeat: no-repeat;
+              background-position: 23px 10px;
+          }
+      }
+  }
+}
+
+// 以上是头部样式
+
+// 
+
+
+
+.content {
+  width: 1200px;
+  height: 765px;
+  // border: 1px solid rebeccapurple;
+  margin: auto;
+
+  .item {
+    width: 1200px;
+    height: 140px;
+    // border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+
+    .pill {
+      width: 985px;
+      height: 50px;
+      margin: auto;
+
+
+      .item-1 {
+        width: 915px;
+        height: 15px;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+
+        .one {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          color: #fde6d9;
+          background-color: #f99137;
+          font-size: 5px;
+          text-align: center;
+        }
+
+        .two {
+          width: 285px;
+          height: 5px;
+          margin-top: 5px;
+          background-color: #f99137;
+        }
+
+        .three {
+          width: 143px;
+          height: 5px;
+          margin-top: 5px;
+          background-color: #f99137;
+        }
+
+        .four {
+          width: 142px;
+          height: 5px;
+          margin-top: 5px;
+          background-color: #ffbd80;
+        }
+
+        .seven {
+          width: 285px;
+          height: 5px;
+          margin-top: 5px;
+          background-color: #ffbd80;
+        }
+
+      }
+
+      .item-2 {
+        width: 915px;
+        height: 15px;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+
+        .five {
+          color: #fba25b;
+        }
+
+        .six {
+          color: #a8a8a8;
+        }
+      }
+    }
+  }
+
+
+
+
+  .item-two {
+    width: 1200px;
+    height: 550px;
+    // border: 1px solid royalblue;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    .pill-u {
+      width: 1200px;
+      height: 110px;
+      // border: 1px solid rebeccapurple;
+      background-color: #fff4f3;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      .pill-bt{
+        height: 30px;
+      }
+      img {
+        // animation-name: example;
+        // animation-duration: 4s;
+        // animation-iteration-count: infinite;
+        // animation-timing-function: linear;
+        animation: example 5s linear infinite ;
+        margin: 20px;
+      }
+      @keyframes example {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(360deg);}
+      }
+    }
+
+    .pill-t {
+      width: 1200px;
+      height: 135px;
+
+      ul {
+        list-style: none;
+        display: flex;
+        margin: 0 auto;
+
+
+        .one {
+          color: #f9b07b;
+        }
+
+      }
+
+      .moive {
+        width: 1200px;
+        height: 110px;
+        border: 1px solid #e4e4e4;
+
+        .moive-1 {
+          width: 1200px;
+          height: 50px;
+          background-color: #f7f7f7;
+
+          table {
+            text-align: center;
+            td {
+              width: 300px;
+              line-height: 50px;
+              font-size: 20px;
+
+              //  超出隐藏
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+          }
+        }
+
+      }
+
+
+    }
+
+
+    .pay {
+      width: 465px;
+      height: 80px;
+
+      .pay-2 {
+        width: 465px;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+
+        .pic {
+          width: 140px;
+          height: 40px;
+          border: 1px solid #d9d9d9;
+        }
+
+        img{
+          margin-left: 15px;
+          margin-top: 8px;
+        }
+
+      }
+
+
+    }
+
+    .yes {
+      width: 190px;
+      height: 100px;
+      margin-left: 1010px;
+
+      .yes-1 {
+        width: 145px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+        font-size: 10px;
+
+        .yes-5 {
+          margin-top: 20px;
+        }
+
+        .yes-3 {
+          font-size: 30px;
+          color: #fa9236;
+        }
+      }
+
+      .yes-2 {
+        width: 190px;
+        height: 40px;
+        text-align: center;
+        line-height: 38px;
+        font-size: 15px;
+        color: white;
+        background-color: #fa9236;
+        border-radius: 20px 20px;
+        
+
+      }
+
+    }
+
+
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// 以下是底部样式
+.footer {
+  width: 100%;
+  background-color: #262426;
+  margin-top: 50px;
+  border-bottom: 1px solid #545454;
+}
+
+.footer .center {
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 70px;
+  padding: 20px 0;
+  border-bottom: #545454 1px solid;
+  height: 230px;
+}
+
+.footer .center .top {
+  width: 100%;
+  display: flex;
+  background-color: #262426;
+}
+
+.footer .center .top>div {
+  width: 25%;
+}
+
+.footer .center .top>div .bor {
+  border-bottom: 3px solid #f99135;
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.footer .center .top>div p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.footer .center .top>div h6 {
+  font-size: 14px;
+}
+
+.footer .center .top>div a {
+  text-decoration: none;
+  color: white;
+}
+
+.bottom {
+  background-color: #262426;
+  padding: 15px 0;
+}
+
+.bottom>div {
+  text-align: center;
+  width: 540px;
+  margin: 0 auto;
+}
+
+.bottom>div ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  font-size: 12px;
+}
+
+.bottom>div ul li a {
+  color: white;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.bottom>div ul li .last {
+  border: 0;
+}
+
+.bottom>div ul .sp1 {
+  color: white;
+}
+
+.bottom>div span {
+  font-size: 12px;
+  color: white;
+}

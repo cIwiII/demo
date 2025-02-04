@@ -1,0 +1,117 @@
+page {
+  background-color: #f5f5f5;
+}
+page .bg {
+  width: 100%;
+  height: 150rpx;
+  background-color: var(--themeColor);
+  color: white;
+}
+page .bg text {
+  margin-left: 20rpx;
+}
+page .list {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-top: -100rpx;
+}
+page .list .item {
+  width: 100%;
+  height: 230rpx;
+  border-radius: 10rpx;
+  background-color: white;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10rpx;
+}
+page .list .item image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 5rpx;
+  border: 1px solid #f5f5f5;
+}
+page .list .item .detail {
+  width: 100%;
+  height: 100%;
+  padding: 20rpx;
+}
+page .list .item .detail .text {
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+page .list .item .detail .button {
+  width: 300rpx;
+  height: 30rpx;
+  border: 1px solid var(--themeColor);
+  text-align: left;
+  border-radius: 5rpx;
+  font-size: 20rpx;
+  margin: 15px 0px;
+  padding: 0px 20px;
+}
+page .list .item .detail .msg {
+  width: 100%;
+  overflow: hidden;
+}
+page .list .item .detail .msg .price {
+  float: left;
+  color: var(--themeColor);
+}
+page .list .item .detail .msg .number {
+  width: 150rpx;
+  float: right;
+  display: flex;
+  border: 1px solid gainsboro;
+  text-align: center;
+  border-radius: 2rpx;
+  height: 50rpx;
+}
+page .list .item .detail .msg .number .btn {
+  flex-grow: 1;
+  background-color: #f5f5f5;
+}
+page .list .item .detail .msg .number .ant {
+  flex-grow: 1;
+}
+page .bottomBar {
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  background-color: white;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  padding: 20rpx;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+page .bottomBar .first {
+  color: gray;
+  display: flex;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+page .bottomBar .total {
+  flex-grow: 2;
+  text-align: center;
+}
+page .bottomBar .total text {
+  color: var(--themeColor);
+}
+page .bottomBar .btn {
+  flex-grow: 1;
+  height: 60rpx;
+  color: white;
+  background: linear-gradient(135deg, var(--themeColor), orange);
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 5rpx;
+}

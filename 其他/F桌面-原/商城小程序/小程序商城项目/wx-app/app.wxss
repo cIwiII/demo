@@ -1,0 +1,73 @@
+/* 给常用的标签设置公共样式 */
+page,view,text,navigator,swiper,swiper-item{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+/* 整个页面我们需要设置一个主题色;一旦在这个变化,整个页面中用到这个主主题色的地方都变化 */
+page{
+  /* 在移动端一般默认14px就足够 */
+  font-size: 28rpx;
+  /* 设置一个主题色,这个颜色做成一个变量 */
+  --themeColor:#ff7159
+}
+
+
+/* 从iconfont获取当前项目的在线地址 */
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_2262551_tucv4zfh0z.eot?t=1607676372760'); /* IE9 */
+  src: url('//at.alicdn.com/t/font_2262551_tucv4zfh0z.eot?t=1607676372760#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
+  url('//at.alicdn.com/t/font_2262551_tucv4zfh0z.woff?t=1607676372760') format('woff'),
+  url('//at.alicdn.com/t/font_2262551_tucv4zfh0z.ttf?t=1607676372760') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('//at.alicdn.com/t/font_2262551_tucv4zfh0z.svg?t=1607676372760#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gouwuche:before {
+  content: "\e664";
+}
+
+.icon-shouye1:before {
+  content: "\e61b";
+}
+
+.icon-chakan:before {
+  content: "\e613";
+}
+
+.icon-search1:before {
+  content: "\e601";
+}
+
+.icon-sousuo:before {
+  content: "\e618";
+}
+
+.icon-liuliangyunpingtaitubiao02:before {
+  content: "\e688";
+}
+
+.icon-shouye:before {
+  content: "\e656";
+}
+
+.icon-search:before {
+  content: "\e612";
+}
+
+.icon-all:before {
+  content: "\e6ef";
+}
+
+.icon-all-fill:before {
+  content: "\e777";
+}
+

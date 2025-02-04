@@ -1,0 +1,25 @@
+.types {
+  width: 100%;
+  display: flex;
+}
+.types .nav {
+  height: 100vh;
+  width: 300rpx;
+}
+.types .content {
+  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+}
+.types .content .sty0 {
+  margin: 20rpx 0;
+}
+.types .content .sty0 .sty1 {
+  background-color: #e7dd23;
+}
+.types .content .sty0 .sty2 {
+  background-color: #f4917f;
+}
+.types .content .sty0 image {
+  width: 200rpx;
+}

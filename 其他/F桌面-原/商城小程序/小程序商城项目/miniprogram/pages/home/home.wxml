@@ -1,0 +1,27 @@
+<!-- 搜素组件 -->
+<search></search>
+<!-- 轮播图 -->
+<view class="banner">
+  <swiper autoplay="{{true}}" indicator-dots="{{true}}" circular="{{true}}">
+    <swiper-item wx:for="{{swiperData}}" wx:key="_id">
+      <image class="" src="{{item.image_src}}" mode="widthFix"></image>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 楼层导航 -->
+<view class="cont">
+  <view wx:for="{{catitemsData}}" wx:key="_id" class="inblock">
+    <image mode="widthFix" src="{{item.image_src}}"></image>
+    <view>{{item.name}}</view>
+  </view>
+</view>
+<!-- 热门商品 -->
+<view class="hi">热门推荐</view>
+<!-- <scroll-view class="scroll" scroll-y="true"> -->
+    <view wx:for="{{floorData}}" wx:key="_id" class="scroll">
+        <image  mode="widthFix" src="{{item.img_src}}" wx:key="_id"></image>
+        <view>
+            {{item.title}}
+        </view>
+    </view>
+<!-- </scroll-view> -->

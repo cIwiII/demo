@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间分片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .list {
+            width: 60vw;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1未分片 -->
+    <ul class="list"></ul>
+    <script>
+        'use strict'
+        let list = document.querySelector('.list')
+        let total = 100000
+        for (let i = 0; i < total; ++i) {
+            let item = document.createElement('li')
+            item.innerText = `我是${i}`
+            list.appendChild(item)
+        }
+    </script>
+
+    <!-- 1分片后 -->
+    <script>
+        'use strict'
+        let lists = document.querySelector('.list')
+        let total2 = 100000
+        let size = 20
+        let index = 0
+        const render = (total2, index) => {
+            if (total2 <= 0) {
+                return
+            }
+            let curPage = Math.min(total2, size)
+            window.requestAnimationFrame(() => {  //一秒60次
+                // let fragment = document.createDocumentFragment()  
+                let fragment = new DocumentFragment();//另一种创建方式，结果相同
+                for (let i = 0; i < curPage; ++i) {
+                    let item = document.createElement('li')
+                    item.innerText = `我是${index + i}`
+                    fragment.appendChild(item)
+                }
+                lists.appendChild(fragment)
+                render(total2 - curPage, index + curPage)
+            })
+        }
+        render(total2, index)
+    </script>
+
+    <!-- 时间分片案例2 -->
+  <!--   <ul id="container"></ul>
+    <script>
+        let ul = document.getElementById('container');
+        let totals = 100;
+        let once = 20;
+        let page = totals / once
+        let index = 0;
+        function loop(curTotal) {
+            if (curTotal <= 0) {
+                return false;
+            }
+            let pageCount = Math.min(curTotal, once);
+            window.requestAnimationFrame(function () {
+                for (let i = 0; i < pageCount; i++) {
+                    let li = document.createElement('li');
+                    li.innerText = ~~(Math.random() * totals)
+                    ul.appendChild(li)
+                }
+                // loop(curTotal - pageCount)
+            })
+        }
+        loop(totals);//传入总的数据条数
+    </script> -->
+
+
+
+    <table id="producttable">
+        <thead>
+            <tr>
+                <td>UPC_Code</td>
+                <td>Product_Name</td>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 现有数据可以可选地包括在这里 -->
+        </tbody>
+    </table>
+
+    <template id="productrow">
+        <tr>
+            <td class="record"></td>
+            <td>这个内容不会被显示,js可操作</td>
+        </tr>
+    </template>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+<!-- pages/home/home.wxml -->
+<scroll-view
+  class="scroll"
+  scroll-y="false"
+>
+  <text class selectable="false" space="false" decode="false">12 23 4 4 5</text>
+</scroll-view>

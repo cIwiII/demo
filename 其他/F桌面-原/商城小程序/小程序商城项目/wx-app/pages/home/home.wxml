@@ -1,0 +1,54 @@
+<!-- 搜素组件 -->
+<search></search>
+<!-- 轮播图 -->
+<view class="banner">
+    <swiper autoplay="{{true}}" indicator-dots="{{true}}" circular="{{true}}" interval="2000">
+        <swiper-item wx:for="{{swiperData}}" wx:key="_id">
+            <image class="" src="{{item.image_src}}" mode="widthFix"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<!-- 楼层导航 -->
+<view class="category">
+    <!-- 每一个图标 -->
+    <view class="type" wx:for="{{iconData}}" :key="_id">
+        <navigator url="/pages/logs/logs" open-type="navigate">
+            <image class="" src="{{item.image_src}}" mode="widthFix"></image>
+            <view class="title">
+                <text>{{item.name}}</text>
+            </view>
+        </navigator>
+    </view>
+</view>
+<!-- 热门商品 -->
+<view class="page-section">
+  <view class="page-section-title">
+    <text>热门推荐</text>
+  </view>
+  <view class="page-section-spacing">
+    <scroll-view class="scroll-view_H" scroll-x="{{true}}" bindscroll="scroll" style="width: 100%">
+      <view wx:for="{{remmondList}}" wx:key="_id" class="scroll-view-item_H demo-text-1">
+        <navigator class="" target="" url="/pages/goods_detail/goods_detail?_id={{item._id}}" open-type="navigate">
+          <image class="" src="{{item.img_src}}" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+        </navigator>
+      </view>
+    </scroll-view>
+  </view>
+  <button open-type="share">点击按钮分享</button>
+</view>
+
+
+
+<!-- <view class="menus">
+			<view class="aMenu">
+				<view v-for="v in array" :key="v" class="">
+					<navigator class="" target="" :url="/pagesB/detail/detail?_id={{v}}" open-type="navigate">
+						<image class="aMenuImg" src="https://modao.cc/uploads4/images/6032/60326641/v2_qn9kn0.png"
+							mode="widthFix"></image>
+						<text>{{v}}</text>
+						<text>{{}}</text>
+					</navigator>
+				</view>
+			</view>
+			<button open-type="share">点击按钮分享</button>
+		</view> -->

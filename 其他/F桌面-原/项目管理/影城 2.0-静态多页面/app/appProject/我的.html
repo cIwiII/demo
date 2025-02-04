@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的</title>
+    <link rel="stylesheet" href="./css/我的.min.css">
+    <script>
+        function adapter() {
+            //获取屏幕的宽度
+            var width = window.innerWidth;
+            // console.log(width);
+            //将750作为标准屏幕
+            if (width > 750) {
+                width = 750;
+            }
+            //设置font-size
+            // console.log(width/75);
+            document.documentElement.style.fontSize = width / 37.5 + 'px';
+        }
+        window.onload = function () {
+            adapter();
+        }
+        window.onresize = function () {
+            adapter();
+        }
+
+    </script>
+</head>
+
+<body>
+        <div class="boxs">
+            <div class="header">
+                <p>我的</p>
+                <div class="headImg"><img src="./img/头像.png" alt="">
+                    <div>李先生</div>
+                </div>
+
+            </div>
+            <div>
+                <div class="bxt">
+                    <div>编辑付款方式</div>
+                    <div><img src="./img/大于箭头.png" alt=""></div>
+                </div>
+                <div class="bxt">
+                    <div>修改密码</div>
+                    <div><img src="./img/大于箭头.png" alt=""></div>
+                </div>
+                <div class="bxt">
+                    <div>退出登录</div>
+                    <div><img src="./img/大于箭头.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="lst">
+            <div class="bottom4">
+                <div class="one">
+                    <div></div>
+                    <div>首页</div>
+                </div>
+                <div class="two">
+                    <div></div>
+                    <div>影院</div>
+                </div>
+                <div class="three">
+                    <div></div>
+                    <div>影片</div>
+                </div>
+                <div class="four">
+                    <div></div>
+                    <div>我的</div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

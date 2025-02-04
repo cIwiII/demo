@@ -1,0 +1,197 @@
+一、HTML
+header 头部/页眉；
+index 首页/索引；
+logo 标志；
+nav/sub_nav 导航/子导航；
+banner 横幅广告；
+main/content 主体/内容；
+container/con 容器；rotate3D(0,1,0,90deg) translate3d(-100px,0,0)
+wrapper/wrap 包裹（类似于container）；
+menu 菜单；
+sub_menu/second_menu 子菜单/二级菜单；
+list 列表；
+section 分区/分块（类似于div）;
+article 文章；
+aside 侧边栏/广告；
+footer 页脚/底部；
+title/sub_title 标题/副标题；
+news 新闻；
+hot 热点；
+pro 产品（product）；
+company 公司；
+msg/info 信息（message）/消息；
+ads 广告（advertisements）;
+icon 小图标；
+img 图片（image）；
+copyright 版权；
+contact_us 联系我们；
+friend_link 友情链接；
+tel 联系电话（telephone）；
+address 地址；
+action 行为；
+method 方式/方法；
+input 输入框；
+label 标签；
+password 密码；
+radio 单选框；
+checkbox 复选框；
+btn 按钮（button）；
+submit/reset 提交/重置；
+textarea 文本域；
+select/option 选择框/选择项；
+placeholder 占位符（起提示作用）；
+search 搜索；
+icon 小图标；
+autofocus 自动聚焦；
+disabled 禁用；
+checked 选中（单选框/复选框）；
+selected 默认选择项（下拉选择框）；
+required 必填项；
+readonly 只读；
+table 表格；
+thead/tbody/tfoot 表格标题/主体/底部；
+colspan 跨列；
+rowspan 跨行；
+
+
+
+二、css
+background 背景；
+backgroud-attachment 是否固定背景；
+backgroud-clip 规定背景的绘制区域；
+word-spacing 以空格来区分是否是一个单词；
+letter-spacing 字符与字符之间的间隔；
+text-decoration 装饰文本；
+underline/line-through/overline 下划线/ 删除线/上划线；
+text-transform：控制英文大小写
+uppercase/lowercase/capitalize 全大写/全小写/每个单词的首字母大写
+border-collapse将表格边框折叠为单一边框
+border-spacing 设置分隔单元格边框的距离 
+position 位置/定位；
+relative/absolute/fixed 相对定位/绝对定位/固定定位；
+float 浮动；
+clear 清除；
+vertical-align: middle/top/bottom; 垂直居中/上/下；
+line-height 行高；
+margin 外边距；
+padding 内边距；
+transparent 透明
+Opacity 透明度
+border 边框；
+solid/dashed/dotted 实线/线虚线/点虚线；
+border-radius 圆角；
+shadow 阴影；
+display 展示；
+hidden 隐藏；
+block/inline-block 块元素/行内块；
+overflow 溢出；
+cursor 光标；
+cursor:pointer; 鼠标移上变为小手；
+	transform 转换；
+translate 移动；
+Rotate 旋转；
+Scale 缩放；
+Skew 倾斜；
+transition 过渡；
+animation 动画；
+css sprites 雪碧图/图片精灵；
+column 分列；
+flex 弹性（布局）；
+
+三、JavaScript
+push :添加一个数组元素
+document ：文档
+pop ：删除最后一个数组元素
+console ：控制台
+shift ：删除第一个数组元素
+string ：字符串
+Concat 组合数组
+undefined ：未定义
+typeof ：关键字
+join：数组转化为指定分隔符
+slice：返回指定数组
+length：数组长度
+Array：数组
+number：数字
+boolean：布尔
+alert：提示框
+parseInt：转化为整型数值
+continue：继续
+is NaN：非数字
+sort：升序
+break：截断 跳出
+reverse：倒序
+object：对象类型
+parseFloat：转化为浮点值
+index：索引
+floor：向下取整
+variable：变量
+ceil：向上取整
+round:四舍五入
+abs：返回绝对值
+eval：解析字符串并运算
+max：比较最大值
+return：返回
+min：比较最小值
+addEventListener：事件名 函数
+to.fixed：保留小数点
+attachEvant：（on）事件名
+random：随机数
+eletment：元素
+onclick：鼠标单击事件
+eventName：事件名
+ondblclick：鼠标双击事件
+function：函数
+onselect：内容被选中事件
+removeEventListener：事件解除
+onmouseover：鼠标移入事件
+detachEvent：删除已注册事件
+onmouseout：鼠标移出事件
+open（）：弹出一个新窗口
+onfocus：获得焦点事件
+function：函数（方法）
+showModalDialog：弹出一个模式窗口
+close（）：关闭当前窗口
+onblur：失去焦点事件
+onkeydown：键盘按下事件（前）
+Date：日期对象
+onkeyup：键盘松开事件
+onkeypress：键盘按下事件（后）
+getFullYear（）：年份
+getMonth（）：月份（0--11）
+getDate（）：几号
+getDay（）：星期几（周一至周六）
+getHours（）：小时（0--23）
+getMinites（）：分钟
+getSeconds（）：秒数（0--59）
+getMilliseconds（）：毫秒数
+getTime（）：从1970至今的毫秒数
+Date.now（）：从1970至今的毫秒值
+tolocaleDatestring（）：输出本地化的日期
+setTimeout：延迟时间
+tolocaleTimestring（）：输出本地化得时间
+clearTimeout：定时器对象
+tolocalestring：输出本地化的日期和时间
+setInterval：间隔时间
+clearInterval：停止
+window.status：浏览器状态栏信息
+window.screen：屏幕信息
+screen.width：屏幕宽度
+screen.height：屏幕高度
+screen.availwidth：去掉任务栏宽度
+screen.avaiheight：去掉任务栏高度
+history：浏览历史记录
+location：地址栏对象
+onchange;内容改变事件
+onkeydown;键盘按下事件（前）
+onkeyup;键盘松开事件
+onkeypress;键盘按下事件（后）
+navigator：用于获取用户浏览器信息
+appCodeName：浏览器代码名的字符串表示
+appName：返回浏览器的名称
+appVersion：返回浏览器的平台和版本信息
+platform：返回运行浏览器的操作系统平台
+userAgent：返回由客户机发送服务器的
+user-agent：头部的值
+Exception：异常 意外情况（try---catch）
+onload：当页面加载完成之后触发

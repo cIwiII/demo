@@ -1,0 +1,25 @@
+.category {
+  width: 100%;
+  display: flex;
+}
+.category .leftMenu {
+  height: 100vh;
+  width: 500rpx;
+}
+.category .rightontent {
+  background-color: #e13030;
+  width: 200rpx;
+  height: 100vh;
+}
+.category .rightontent .sty0 {
+  margin: 20rpx 0;
+}
+.category .rightontent .sty0 .sty1 {
+  background-color: #e7dd23;
+}
+.category .rightontent .sty0 .sty2 {
+  background-color: #f4917f;
+}
+.category .rightontent .sty0 image {
+  width: 200rpx;
+}

@@ -1,0 +1,14 @@
+<!--components/tabs/tabs.wxml-->
+<view class="nav" hover-class="none" hover-stop-propagation="false">
+  <view wx:for="{{navArr}}" data-v="{{item.cat_id}}" bindtap="activ" wx:key="cat_id">
+    <view class="item1 {{item.cat_id==sele?'active':''}}">
+      <image class="" src="{{item.cat_icon}}" mode="widthFix"> </image>
+      {{item.cat_name}}
+    </view>
+    <view class="disnone {{item.cat_id==sele?'disshow':''}}">
+      <view class="" wx:for="{{item.children}}" wx:for-item="val">
+        {{val.cat_name}}
+      </view>
+    </view>
+  </view>
+</view>

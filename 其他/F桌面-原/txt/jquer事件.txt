@@ -1,0 +1,168 @@
+
+--------------------
+“isNaN()函数用来确定一个值是否为NaN。注:isNaN函数内包含一些非常有趣的规则;你也可以使用 ECMAScript 2015 中定义的Number.isNaN()来判断。
+
+---------------------------------------
+
+你可以去读一下HTML5的详细规范，但这个自定义data属性的用法非常的简单，就是你可以往HTML标签上添加任意以 "data-"开头的属性，
+这些属性页面上是不显示的，它不会影响到你的页面布局和风格，但它却是可读可写的。
+
+
+HTML5 增加了一项新功能是 自定义数据属性 ，也就是 data-* 自定义属性。在HTML5中我们可以使用以 data- 为前缀来设置我们需要的自定义属性，
+来进行一些数据的存放。当然高级浏览器下可通过脚本进行定义和数据存取。在项目实践中非常有用。
+------------------------------
+parseInt( ) 的定义：
+parseInt() 函数可解析一个字符串，并返回一个整数。 [1] 
+parseInt( ) 的语法：
+parseInt ( String s , [ int radix ] ) [1] 
+其中，
+参数 String s ，必需，表示要被解析的字符串。 [1] 
+int radix ，可选，表示要解析的数字的基数(进制数，默认10，范围2-36)，不在范围时为parseInt( )返回NaN
+------------------------------------------------------
+Document.documentElement 是一个会返回文档对象（document）的根元素的只读属性（如HTML文档的 <html> 元素）。
+
+ 
+对于任何非空 HTML 文档，调用 document.documentElement 总是会返回一个 <html> 元素，且它一定是该文档的根元素。
+借助这个只读属性，能方便地获取到任意文档的根元素。
+
+
+参考文档
+
+html中document.body 与 document.documentElement的区别如下：
+
+
+
+
+1. document.body
+
+返回html dom中的body节点 即<body>
+
+
+2. document.documentElement
+
+返回html dom中的root根节点 即<html>
+
+页面指定了 DOCTYPE 时，使用 document.documentElement，否则，使用 document.body。
+
+
+以HTML超文本标记语言为例：整个文档的根可在DOM中使用document.documentElement来访问它，它就是整个节点树的根节点。而body是子节点，要访问到body标签，在脚本中应该写：document.body。
+
+--------------------------------------------------------
+1.定义
+on()方法在被选元素及子元素上添加一个或多个事件处理程序。
+
+
+
+
+2.语法
+$(selector).on( event,childSelector,data,function,map)
+
+
+
+3.参数
+参数	
+描述
+event  必需。事件名,
+
+多个事件-空格分隔。必须是有效的事件。
+
+childSelector 可选。规定只能添加到指定的子元素上的事件处理程序（且不是选择器本身，比如已废弃的 delegate() 方法）。
+
+data 可选。规定传递到函数的额外数据。
+
+function  可选。规定当事件发生时运行的函数。
+
+map  规定事件映射 ({event:function, event:function, ...})，包含要添加到元素的一个或多个事件，以及当事件发生时运行的函数。
+
+
+4.实例
+
+1. 基本用法
+ ：
+$("#div1").on("click",function(){
+
+$(this).css("background-color","pink");
+});
+
+
+
+2. 绑定div下所有p标签的click方法
+
+$("#div1").on("click","p",function(){
+   
+ $(this).css("background-color","pink");
+});
+
+
+
+3. 一个元素多个事件绑定同一个方法
+
+$("p").on("mouseover mouseout",function(){
+    
+$("p").toggleClass("intro");
+});
+
+
+
+4. 一个元素绑定不同事件不同方法
+
+$("p").on({
+ mouseover:function(){$("body").css("background-color","lightgray");}, mouseout:function(){$("body").css("background-color","lightblue");}, 
+    click:function(){$("body").css("background-color","yellow");}  });
+
+
+
+5. 绑定自定义元素
+
+ $("p").on("myOwnEvent", function(event, showName){
+    $(this).text(showName + "! What a beautiful name!").show();
+  });
+  $("button").click(function(){
+    $("p").trigger("myOwnEvent",["Anja"]);
+  });
+
+
+
+6. 传入数据
+
+function handlerName(event) {
+  alert(event.data.msg);
+}
+
+
+$(document).ready(function(){
+  $("p").on("click", {msg: "You just clicked me!"}, handlerName)
+});
+
+
+
+7. 向将要创建的元素绑定方法
+
+$(function(){
+  $("div").on("click","p",function(){
+    $(this).slideToggle();
+  });
+  $("button").click(function(){
+    $("<p>This is a new paragraph.</p>").insertAfter("button");
+  });
+});
+
+
+
+
+8. 
+----------------
+$(function(){
+  
+$("p").on("click",function(){
+    
+$(this).css("background-color","pink");
+  });
+ 
+
+ 8移除事件
+$("button").click(function(){
+    $("p").off("click");
+
+  });
+});

@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    ;
+    padding: 0;
+}
+
+.box {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./../image/p__background.png);
+    position: relative;
+
+    .content {
+        width: 600px;
+        height: 540px;
+        // border: 1px solid red;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto auto;
+        text-align: center;
+        background-color: #ffffff;
+        padding-top: 15px;
+
+        fieldset {
+            width: 540px;
+            // height: 140px;
+            text-align: left;
+            font-size: 14px;
+            color: #666666;
+            margin: 20px auto;
+            padding: 15px 0 0 25px;
+            border: 1px solid #d6d6d6;
+            border-radius: 5px;
+            padding-bottom: 30px;
+
+            p {
+                line-height: 25px;
+                margin-bottom: 0;
+
+                span {
+                    color: red;
+                }
+            }
+
+
+            legend {
+                color: #333333;
+                font-size: 18px;
+                width: auto;
+            }
+        }
+
+        >input {
+            margin-top: 30px;
+            width: 120px;
+            height: 40px;
+            font-size: 14px;
+            color: #666666;
+            border: 1px solid #666666;
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+
+        >input:nth-last-of-type(1) {
+            background-color: #726fff;
+            color: #ffffff;
+            border: none;
+        }
+    }
+}

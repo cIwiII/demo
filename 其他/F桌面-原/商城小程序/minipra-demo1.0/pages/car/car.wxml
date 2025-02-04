@@ -1,0 +1,23 @@
+<!--pages/car/car.wxml-->
+<swiper
+indicator-dots="true" 
+indicator-color="#10239e" indicator-active-color="#b37feb" 
+autoplay="true" interval="2000" circular="true"
+>
+
+<swiper-item class="item item1" item-id="" >
+    <image mode="widthFix" src="https://imgcps.jd.com/ling4/100026667928/5Lqs6YCJ5aW96LSn/5L2g5YC85b6X5oul5pyJ/p-5bd8253082acdd181d02fa7f/82804417/cr/s/q.jpg"></image>
+</swiper-item>
+<swiper-item class="item item2" item-id="">
+    <image src="https://imgcps.jd.com/img-cubic/creative_server_cia/v2/2000366/45803617974/FocusFullshop/CkNqZnMvdDEvMTM0NjgyLzE2LzIzNjk0LzcyNTg1LzYyY2VjODkyRTBhODZmYjE5LzRkY2JjM2Y0YzRhODgyNTguanBnEgo5OTktdHlfMF8xMAE47ot6WLb97tCqAQ/cr/s/q.jpg"></image>
+</swiper-item>
+<swiper-item class="item item3" item-id="">
+    <image src="https://imgcps.jd.com/ling4/100026667878/5Lqs6YCJ5aW96LSn/5L2g5YC85b6X5oul5pyJ/p-5bd8253082acdd181d02fa22/ae4724d1/cr/s/q.jpg"></image>
+</swiper-item>
+</swiper>
+<view class="paynav">
+    <tabs navArr="{{list}}" sele="{{state}}" bindChangeSele="ChangeState"></tabs>
+</view>
+
+
+

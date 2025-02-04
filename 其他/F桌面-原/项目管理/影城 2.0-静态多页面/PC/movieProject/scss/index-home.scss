@@ -1,0 +1,1094 @@
+body {
+    margin: 0;
+}
+
+.top {
+    width: 100%;
+    height: 40px;
+    background-color: #f0f0f0;
+
+    .center {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 40px;
+
+        .left {
+            color: #9a9a9a;
+            font-size: 14px;
+        }
+
+        .right {
+            a {
+                color: #9a9a9a;
+                margin: 0;
+                text-decoration: none;
+                font-size: 14px;
+                padding: 0 20px;
+                border-right: 1px solid #9a9a9a;
+
+            }
+
+            .a1,
+            .a2 {
+                border: 0;
+            }
+        }
+    }
+}
+
+// 注册模态框
+#exampleModal1 {
+    .modal-dialog {
+        width: 400px;
+
+        .modal-content {
+            padding: 10px 40px;
+
+            .modal-header {
+                position: relative;
+                border: 0;
+                padding: 0;
+                border-bottom: 1px solid #d8d8d8;
+
+                ul {
+                    li {
+                        a {
+                            color: #333;
+                            background-color: white;
+                            padding: 10px;
+                            padding-bottom: 0;
+                            border-radius: 0;
+                            padding-bottom: 1rem;
+
+                        }
+
+                        .active {
+                            border-bottom: 8px solid orangered;
+                        }
+                    }
+                }
+
+                button {
+                    position: absolute;
+                    top: 6px;
+                    right: -24px;
+                    width: 40px;
+                    height: 40px;
+                    background-color: #222320;
+                    border-bottom-left-radius: 40px;
+
+                    span {
+                        position: absolute;
+                        top: -6px;
+                        left: 13px;
+                        color: white;
+                        font-size: 35px;
+                        font-weight: 300;
+                    }
+                }
+
+            }
+
+            .modal-body {
+                padding: 0;
+                margin-top: 10px;
+
+                #pills-profile {
+                    input {
+                        width: 100%;
+                        height: 46px;
+                        margin-top: 20px;
+                        background-color: #f4f4f4;
+                        border: 1px solid #d8d8d8;
+                        border-radius: 7px;
+
+                        &::-moz-placeholder {
+                            font-size: 14px;
+                            color: #a0a0a0;
+                        }
+                    }
+
+                    .regsta {
+                        width: 198px;
+                        height: 30px;
+                    }
+
+                    button {
+                        margin-top: 30px;
+                        width: 100%;
+                        height: 46px;
+                        border-radius: 7px;
+                        background-color: #f99135;
+                        border: 0;
+                        color: white;
+                        font-size: 20px;
+                    }
+
+                    .user {
+                        padding: 20px 0;
+                        font-size: 14px;
+                        text-align: right;
+
+                        a {
+                            text-decoration: none;
+                            color: #f99135;
+                        }
+                    }
+
+                }
+
+                #pills-home {
+
+                    .in1,
+                    .in2 {
+                        width: 100%;
+                        height: 46px;
+                        margin-top: 20px;
+                        background-color: #f4f4f4;
+                        border: 1px solid #d8d8d8;
+                        border-radius: 7px;
+                    }
+
+                    .a1 {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+
+                        a {
+                            float: right;
+                            color: #f99135;
+                            text-decoration: none;
+                        }
+                    }
+
+                    .bor {
+                        width: 100%;
+                        border-bottom: 1px solid #d8d8d8;
+                    }
+
+                    .ck1 {
+                        margin-top: 25px;
+                        margin-bottom: 30px;
+
+                        input {
+                            font-size: 12px;
+                        }
+
+                        span {
+                            font-size: 12px;
+                        }
+                    }
+
+                    button {
+                        width: 100%;
+                        height: 46px;
+                        border-radius: 7px;
+                        background-color: #f99135;
+                        border: 0;
+                        color: white;
+                        font-size: 20px;
+                        margin-top: 30px;
+                    }
+
+                }
+
+
+            }
+
+
+
+        }
+    }
+
+
+}
+
+
+
+.header {
+    height: 90px;
+
+    .center {
+        width: 1200px;
+        margin: 0 auto;
+        height: 90px;
+        display: flex;
+
+        .left {
+            width: 30%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            .icon {
+                width: 10px;
+                height: 20px;
+                background-image: url(../img/zy_06.png);
+                background-position: 0 5px;
+                margin-left: 5px;
+            }
+
+            span {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+        }
+
+        .cen {
+            height: 100%;
+            width: 50%;
+
+            ul {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                list-style: none;
+                color: #333;
+                display: flex;
+
+                li {
+                    height: 100%;
+                    display: flex;
+
+                    a {
+                        font-size: 18px;
+                        height: 90px;
+                        padding: 0 22px;
+                        line-height: 90px;
+                        color: #333;
+                        text-decoration: none;
+
+                        &:hover {
+                            background-color: #f99135;
+                            color: white;
+                        }
+
+
+                    }
+                }
+
+            }
+        }
+
+        .right {
+            width: 20%;
+            display: flex;
+            align-items: center;
+
+            .search {
+                height: 44px;
+                width: 100%;
+                border: 2px solid #f99135;
+                border-radius: 22px;
+            }
+
+            .bt1 {
+                height: 44px;
+                border-radius: 22px;
+                width: 30%;
+                border: 2px solid #f99135;
+                background-color: #f99135;
+                margin-left: -33px;
+                background-image: url(../img/zy0_06.png);
+                background-repeat: no-repeat;
+                background-position: 23px 10px;
+            }
+        }
+    }
+}
+
+// 首页
+// bootstrap轮播图
+// .carousel-inner {
+//     img {
+//         width: 100%;
+//     }
+// }
+
+//自制轮播
+.lun {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+
+    .lun1 {
+        width: 500%;
+        display: flex;
+        position: absolute;
+        margin: 0 auto;
+        z-index: 2;
+        img{
+            width: 100vw;
+            margin: 0 auto;
+        }
+
+    }
+    .ann{
+        position: absolute;
+        bottom: 20px;
+        left: 40%;
+        display: flex;
+        z-index: 3;
+        div{
+            width: 20px;
+            height: 20px;
+            background:rgba($color: #f2f1ed, $alpha: 0.7);
+            border-radius: 20px;
+            margin:0 20px ;
+        }
+        .asx{
+            background-color:rgba(189, 216, 13,0.9) ;
+        }
+    }
+    >img{
+        width: 100vw;
+    }
+
+
+}
+
+.select {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+
+    .bt1 {
+        width: 150px;
+        height: 44px;
+        font-size: 24px;
+        color: white;
+        border: 0;
+        border-top-right-radius: 22px;
+        border-bottom-right-radius: 22px;
+        background-color: #f99135;
+    }
+
+    .bt2 {
+        width: 120px;
+        height: 44px;
+        font-size: 18px;
+        color: white;
+        border: 0;
+        background-color: #f99135;
+        border-radius: 22px;
+    }
+
+    select {
+        width: 206px;
+        height: 44px;
+
+        border-radius: 22px;
+        border: 1px #ccc solid;
+        background-color: #fff;
+        color: #8c8c8c;
+        font-size: 16px;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-image: url(../img/zhu78_17.png);
+        background-repeat: no-repeat;
+        background-position: 170px 15px;
+        padding-left: 10px;
+    }
+}
+
+.content {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+
+    .left {
+        width: 60%;
+        margin: 0 -15px;
+
+
+        .head {
+            display: flex;
+            color: #f99135;
+            justify-content: space-between;
+            padding: 0 15px;
+
+            .sp1 {
+                font-size: 20px;
+            }
+
+            .more {
+                font-size: 14px;
+                display: flex;
+                align-items: flex-end;
+            }
+        }
+
+        .tu {
+            width: 100%;
+            display: flex;
+
+            flex-wrap: wrap;
+            overflow: hidden;
+            margin-bottom: 30px;
+
+            >div {
+                //js添加的最外层div
+                width: 150px;
+                height: 240px;
+                margin: 10px 15px 20px;
+
+                &:hover {
+                    box-shadow: 2px 5px 20px 0px #c8cccc;
+                    background-color: #ccc8c096;
+                }
+
+                a {
+                    color: black;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+
+                }
+
+                .im {
+                    position: relative;
+
+                    .dw {
+                        position: absolute;
+                        bottom: 0;
+                        background-color: #f99135;
+                        width: 100%;
+                        text-align: center;
+                        padding: 10px 0;
+                        color: white;
+                        opacity: 0.8;
+                        display: none;
+                    }
+
+                    &:hover .dw {
+                        display: block;
+                    }
+                }
+
+                img {
+                    width: 150px;
+                    height: 197px;
+                }
+
+
+                .score {
+                    background-color: #fff;
+                    border: #e8e8e8 1px solid;
+                    display: flex;
+                    padding: 5px;
+                    justify-content: space-between;
+
+                    .name {
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1;
+
+                    }
+
+                    span {
+                        font-size: 14px;
+                        color: #f99135;
+                    }
+                }
+
+
+
+            }
+        }
+
+        .tu1 {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            margin-bottom: 30px;
+
+            >div {
+                width: 150px;
+                height: 270px;
+                margin: 10px 15px 20px;
+
+                .tz {
+                    &:hover {
+                        box-shadow: 2px 2px 4px 1px #c8cccc;
+                    }
+                }
+
+                .im {
+                    position: relative;
+
+                    .dw {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        background-color: #f99135;
+                        height: 40px;
+                        text-align: center;
+                        color: white;
+                        opacity: 0.8;
+                        display: none;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        display: none;
+
+                        >div {
+                            border-right: 2px solid white;
+                            padding: 0 15px;
+                        }
+
+                        .ys {
+                            border: 0;
+                        }
+
+                    }
+                }
+
+                &:hover .dw {
+                    display: flex;
+                }
+
+                img {
+                    width: 150px;
+                    height: 197px;
+                }
+
+                .score {
+                    background-color: #fff;
+                    border: #e8e8e8 1px solid;
+                    display: flex;
+                    padding: 5px;
+                    justify-content: space-between;
+
+                    div:first-child {
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1;
+                    }
+
+                    span {
+                        font-size: 14px;
+                        color: #f99135;
+                    }
+                }
+
+                .time {
+                    text-align: center;
+                    font-size: 14px;
+                    color: #c3c3c3;
+                    margin-top: 10px;
+                }
+
+
+
+            }
+
+        }
+    }
+
+    .right {
+        width: 30%;
+
+        .head {
+            display: flex;
+            color: #f99135;
+            justify-content: space-between;
+
+            .sp1 {
+                font-size: 20px;
+            }
+
+            .more {
+                font-size: 14px;
+                display: flex;
+                align-items: flex-end;
+            }
+        }
+
+        .tu2 {
+            display: flex;
+            border: 1px solid #e8e8e8;
+
+            .wz {
+                align-self: center;
+                margin-left: 10px;
+
+                .p1 {
+                    font-size: 18px;
+                }
+
+                .p2 {
+                    color: #999;
+                    margin-bottom: 0;
+                }
+
+                span {
+                    font-size: 14px;
+                    color: #f99135;
+                }
+            }
+        }
+
+        .tu3 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 50px;
+
+            .tu3-1 {
+                width: 47%;
+                border: 1px solid #e8e8e8;
+
+                img {
+                    width: 100%;
+                }
+
+                .wz {
+                    padding: 5px 5px;
+
+                    >.wz1 {
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1;
+                        font-size: 18px;
+
+                    }
+
+                    .wz2 {
+                        color: #999;
+                        font-size: 14px;
+
+                    }
+                }
+
+
+            }
+        }
+
+        .tu2-1 {
+            border: 0;
+
+            .wz-1 {
+                align-self: center;
+                font-size: 14px;
+                margin-left: 15px;
+
+            }
+        }
+
+        .hot {
+
+            margin: 15px 0;
+
+            a {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                text-decoration: none;
+                color: #333;
+
+                .wz {
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    font-size: 14px;
+                    margin-left: 15px;
+                }
+
+                .num {
+                    color: #b8b8b8;
+                }
+
+                .num-1 {
+                    color: #f99135;
+                }
+
+                &:hover {
+                    color: #f99135;
+                }
+            }
+
+
+        }
+
+    }
+}
+
+// 会员中心
+.row {
+    width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #e5e5e5;
+    height: 800px;
+    margin-bottom: 50px;
+
+    .col-3 {
+        max-width: 200px;
+        background-color: #f4f3f4;
+        padding: 0;
+        border: 1px solid #e5e5e5;
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            background-color: #f99135;
+        }
+
+        .HY {
+            padding: 30px;
+            text-align: center;
+        }
+
+        #v-pills-tab {
+            text-align: center;
+
+            a {
+                color: #333;
+            }
+        }
+    }
+
+    .col-9 {
+        padding: 35px;
+        flex-grow: 1;
+        max-width: 100%;
+
+        .tab-content {
+            #v-pills-home {
+                .mine {
+                    color: #f99135;
+                    font-size: 18px;
+                    border-bottom: 1px solid #e5e5e5;
+                    padding-bottom: 20px;
+                }
+
+                .order {
+                    width: 90%;
+                    padding: 0 20px;
+                    margin-top: 20px;
+
+
+                    .box1 {
+                        height: 50px;
+                        display: flex;
+                        align-items: center;
+                        background-color: #f7f7f7;
+                        padding: 0 20px;
+                        position: relative;
+
+                        span {
+                            margin-right: 30px;
+                            font-size: 14px;
+                        }
+
+                        .im1 {
+                            position: absolute;
+                            right: 20px;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    .box2 {
+                        border: 1px solid #e5e5e5;
+                        display: flex;
+                        padding: 20px 20px;
+                        align-items: center;
+
+                        .box2-1 {
+                            width: 10%;
+                        }
+
+                        .box2-2 {
+                            margin-left: 15px;
+                            width: 45%;
+
+                            h5 {
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+
+                            p {
+                                font-size: 12px;
+                                color: #999;
+                                margin: 0;
+                            }
+
+                            .p3 {
+                                color: #f99135;
+                            }
+                        }
+
+                        .box2-3 {
+                            width: 15%;
+                            font-size: 14px;
+
+
+                        }
+
+                        .box2-4 {
+                            width: 20%;
+                            font-size: 14px;
+
+
+                        }
+
+                        .box2-5 {
+                            width: 10%;
+
+                            button {
+                                width: 80px;
+                                height: 35px;
+                                border-radius: 17px;
+                                border: 0;
+                                background-color: #f99135;
+                                color: white;
+                            }
+
+                            a {
+                                text-decoration: none;
+                                color: #333;
+                                font-size: 14px;
+
+                            }
+
+
+                        }
+
+                    }
+                }
+            }
+
+            #v-pills-profile {
+                .mine {
+                    color: #f99135;
+                    font-size: 18px;
+                    border-bottom: 1px solid #e5e5e5;
+                    padding-bottom: 20px;
+                }
+
+                .basic {
+                    margin-top: 20px;
+                    display: flex;
+
+                    .tx {
+                        width: 250px;
+                        text-align: center;
+
+                        .im {
+
+                            img {
+                                width: 250px;
+                            }
+                        }
+
+                        .but {
+                            margin-top: 20px;
+                            margin-bottom: 10px;
+
+                            button {
+                                width: 180px;
+                                text-align: center;
+                                height: 56px;
+                                border: 0;
+                                font-size: 18px;
+                            }
+
+                            .gs {
+                                font-size: 18px;
+
+                            }
+                        }
+
+                    }
+
+                    .message {
+                        margin-left: 60px;
+
+                        table {
+                            tr {
+                                height: 50px;
+                            }
+
+                            .td {
+                                text-align: right;
+                            }
+
+                            .hy {
+                                select {
+                                    background-color: white;
+                                }
+
+                                .se1 {
+                                    width: 96px;
+                                }
+
+                                .se2 {
+                                    width: 52px;
+                                }
+                            }
+
+                            .gx {
+                                input {
+                                    &::-moz-placeholder {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+
+                            .save {
+                                button {
+                                    width: 100px;
+                                    height: 40px;
+                                    border: 0;
+                                    background-color: #f99135;
+                                    color: white;
+                                    border-radius: 5px;
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+            }
+
+            #v-pills-messages {
+                .mine {
+                    color: #f99135;
+                    font-size: 18px;
+                    border-bottom: 1px solid #e5e5e5;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                }
+
+                table {
+                    tr {
+                        height: 50px;
+
+                        .pa {
+                            text-align: right;
+                        }
+                    }
+
+                    .save {
+                        button {
+                            width: 100px;
+                            height: 40px;
+                            border: 0;
+                            background-color: #f99135;
+                            color: white;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    width: 100%;
+    background-color: #262426;
+    margin-top: 50px;
+    border-bottom: 1px solid #545454;
+
+    .center {
+        width: 1000px;
+        margin: 0 auto;
+        margin-top: 70px;
+        padding: 20px 0;
+        border-bottom: #545454 1px solid;
+        height: 230px;
+
+        .top {
+            width: 100%;
+            display: flex;
+            background-color: #262426;
+
+            >div {
+                width: 25%;
+
+                .bor {
+                    border-bottom: 3px solid #f99135;
+                    width: 50px;
+                    margin-bottom: 15px;
+
+                }
+
+                p {
+                    font-size: 18px;
+                    margin-bottom: 5px;
+                }
+
+                h6 {
+                    font-size: 14px;
+
+                }
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+
+            }
+
+        }
+
+    }
+}
+
+.bottom {
+    background-color: #262426;
+    padding: 15px 0;
+
+    >div {
+        text-align: center;
+        width: 540px;
+        margin: 0 auto;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            font-size: 12px;
+
+            li {
+                a {
+
+                    color: white;
+                    padding: 0 10px;
+                    text-decoration: none;
+                }
+
+                .last {
+                    border: 0;
+                }
+            }
+
+            .sp1 {
+                color: white;
+            }
+        }
+
+        span {
+            font-size: 12px;
+            color: white;
+        }
+    }
+}

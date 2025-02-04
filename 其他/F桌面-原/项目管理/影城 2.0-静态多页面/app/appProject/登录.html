@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="./css/登陆.min.css">
+    <script>
+        function adapter(){
+            //获取屏幕的宽度
+            var width=window.innerWidth;
+            // console.log(width);
+            //将750作为标准屏幕
+            if(width>750){
+                width=750;
+            }
+            //设置font-size
+            // console.log(width/75);
+            document.documentElement.style.fontSize=width/37.5+'px';
+        }
+        window.onload=function(){
+            adapter();
+        }
+        window.onresize=function(){
+            adapter();
+        }
+
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div><img src="./img/箭头.png" alt=""></div>
+        <p><strong>登录</strong></p>
+
+    </div>
+    <div class="login">
+        <p>用户名</p>
+        <div class="inputAcc">
+            <input type="text" placeholder="请输入账号或手机号">
+        </div>
+        
+        <div class="pwd">
+            <p>密码</p>
+            <p>忘记密码？</p>
+        </div>
+        <div class="inputPwd">  
+            <input type="password" placeholder="请输入密码"><img src="./img/闭眼睛.png" alt="">
+        </div>
+        <div class="log">立即登录</div>
+        <div class="reg">立即注册></div>
+        
+    </div>
+    <script>
+        document.querySelector('.log').onclick=function(){
+            location.assign('./即将上映.html');
+        }
+    </script>
+</body>
+</html>

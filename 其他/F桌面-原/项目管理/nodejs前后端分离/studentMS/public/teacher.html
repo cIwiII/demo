@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <title>成绩</title>
+    <style>
+        
+    </style>
+    <script>
+        $(function(){
+            $.ajax({
+                url:'/teacher',
+                typr:'get',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                },
+                success:function(data){
+                    console.log(data.message);
+                    if(data.code==200){
+                        console.log(data.data)
+                        render(data.data)
+                    }
+                },
+                error: function () {
+                    alert('请先登陆');
+                    location.href='./index.html'
+
+                }
+            })
+            //课程选项加载
+            $.ajax({
+                url:'/class',
+                type:'get',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                },
+                success:function(data){
+                    console.log(data.message);
+                    if(data.code==200){
+                        console.log(data.data)
+                        classxr(data.data)
+                    }
+                },
+                error: function () {
+                    alert('请先登陆');
+                    location.href='./index.html'
+
+                }
+            })
+        })
+         //渲染
+        function render(data) {
+                let content = '';
+                data.forEach(val => {
+                    let content2='';
+                    val.classId.forEach(function(vals,index){
+                        content2+=`<span class="span">${vals.name}</span><br>`
+                    })
+                    content += `<tr>
+                        <td>${val._id}</td>
+                        <td>${val.name}</td>
+                        <td>${val.tel}</td>
+                        <td>${val.satry}</td>
+                        <td>${content2}</td>
+                        <td>
+                            <span>删除</span>
+                            <span>修改</span>
+                        </td>
+                      </tr>`
+                });
+                $('tbody').html(content);
+        }
+        function classxr(data){
+            let content='<option value="null">--选择课程--</option>';
+            data.forEach(val=>{
+                content+=` <option value="${val._id}">${val.name}</option>`
+            });
+            $('#tclass').html(content)
+        }
+
+    </script>
+</head>
+<body>
+    <form class="forms">
+        <div><span>姓名：</span><input type="text" id="tname"></div>
+        <div><span>电话：</span><input type="text" id="ttel"></div>
+        <div><span>工资：</span><input type="text" id="tsray"></div>
+        <div><span>教授课程：</span>
+            <select name="" id="tclass">
+
+            </select>
+        </div>
+       
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>老师编号</th>
+                <th>老师姓名</th>
+                <th>电话</th>
+                <th>工资</th>
+                <th>教授课程</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>

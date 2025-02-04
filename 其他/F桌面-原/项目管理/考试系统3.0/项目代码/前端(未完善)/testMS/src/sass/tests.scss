@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+body {
+    background-color: #f5f7fa;
+
+    .index1 {
+        width: 100%;
+        height: 80px;
+        position: relative;
+        background-color: #6966eb;
+        z-index: 0;
+        margin-bottom: -2px;
+
+        .header {
+            width: 1210px;
+            margin: 0 auto;
+            justify-content: space-between;
+            color: #fff;
+            border: 1px solid #6966eb;
+
+
+            >img {
+                width: 250px;
+                height: 46px;
+                float: left;
+                margin: 16px 110px 16px 0;
+            }
+
+            .navs {
+                display: flex;
+                float: left;
+
+                div {
+                    padding: 26px 25px;
+                    border-bottom: 2px solid transparent;
+                    a{
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                }
+                .checked{
+                    border-bottom: 2px solid #fff;
+                }
+
+                div:hover {
+                    border-bottom: 2px solid #fff;
+                }
+            }
+
+            .logreg {
+                display: flex;
+                float: right;
+                position: relative;
+                align-items: center;
+
+                .trans,
+                span {
+                    padding: 28px 8px;
+                    border-bottom: 2px solid transparent;
+
+                    a {
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                }
+
+                .trans:hover {
+                    background-color: #7472e9;
+                    border-bottom: 2px solid #fff;
+                }
+
+                .tout {
+                    width: 60px;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        margin-top: 16px;
+                    }
+
+                    .sans {
+                        display: none;
+                        position: absolute;
+                        left: -20px;
+                        top: 56px;
+                        width: 90px;
+                        z-index: 3;
+
+                        div {
+                            width: 0;
+                            height: 0;
+                            border: 8px solid transparent;
+                            border-bottom-color: #fff;
+                            margin: 0 auto;
+
+                        }
+                    }
+
+                    ul {
+                        display: none;
+                        position: absolute;
+                        background-color: #fff;
+                        color: #000;
+                        list-style: none;
+                        width: 90px;
+                        left: -20px;
+                        top: 72px;
+                        border-radius: 5px;
+
+                        li {
+                            line-height: 2;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .tout:hover ul,
+                .tout:hover .sans {
+                    display: block;
+                }
+
+                .username {
+                    padding-top: 14px;
+                }
+            }
+        }
+
+
+    }
+
+    //}//body end
+    //退出登陆模态
+    #quit2 {
+        width: 100vw;
+        height: 100vh;
+        display: none;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 11;
+        background-color: rgba(16, 19, 18, .3);
+    
+        .quitcontent {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            margin-top: 100px;
+            background-color: #ff0000;
+            padding-top: 20px;
+    
+            >div {
+                margin: 20px auto;
+                text-align: center;
+            }
+    
+            h3 {
+                text-align: center;
+            }
+    
+        }
+    }
+
+    //内容区
+    #test {
+        width: 1210px;
+        margin: 0 auto;
+
+        >div {
+            margin: 10px 0;
+        }
+
+        .testtitl {
+            margin: 20px 0;
+            font-size: 20px;
+            font-weight: 500;
+            span:nth-child(1) {
+                color: #6966eb;
+            }
+        }
+
+        .testing,
+        .tested {
+            padding: 0 30px;
+            background-color: #fff;
+            box-shadow: 0 0 6px 2px #d8d6d6;
+            margin-bottom: 20px;
+            >div:nth-child(1){
+                padding: 30px 0 20px;
+                font-size: 20px;
+                font-weight:500;
+            }
+            #ing,
+            #ed {
+
+                //单个试卷
+                >div {
+                    padding: 20px 0;
+                    display: flex;
+                    justify-content: space-between;
+                    border-top: 1px solid #d8d6d6;
+                    //单个试卷左边
+                    >div:nth-child(1) {
+                        display: flex;
+                        img {
+                            width: 130px;
+                            height: 90px;
+                            margin-right: 15px;
+                        }
+                        >div{
+                            padding: 10px;
+                            //卷名
+                            >div{
+                                display: flex;
+                                span{
+                                    margin-left: 5px;
+                                    padding:0 5px;
+                                    height: 25px;
+                                    line-height: 25px;
+                                    text-align: center;
+                                    
+                                    color: #fff;
+                                    border-radius: 3px;
+                                }
+                                .fing{
+                                    background-color: #6966eb;
+                                }
+                                .fed{
+                                    background-color: #7c7c7c;
+                                }
+                            }
+                            //试卷信息
+                            small{
+                                display: flex;
+                                span:nth-child(2){
+                                    margin-left: 40px;
+                                }
+                            }
+                        }
+                    }
+                    //右边进入，查看
+                    >a{
+                        display: block;
+                        text-decoration: none;
+                        margin-top: 20px;
+                        height: 30px;
+                        line-height: 30px;
+                        text-align: center;
+                        padding: 0 10px;
+                        background-color: #6966eb;
+                        color: #fff;
+                        border-radius: 5px;
+                    }
+
+                }
+
+            }
+
+
+
+        }
+
+    }
+
+    .footer {
+        line-height: 50px;
+        text-align: center;
+        background-color: #726fff;
+        color: #fff;
+    }
+}
+
+
+//资料修改模态
+#uppersondata {
+    // background-color: rgba(136, 130, 130, 0.4);
+
+    .modal-content {
+        width: 600px;
+        height: 410px;
+
+        .modal-header {
+            background-color: #6966eb;
+            color: #fff;
+        }
+
+        .modal-body {
+            display: flex;
+            padding-top: 20px;
+
+            .modaltout {
+                margin: 0 10px;
+
+                >div {
+                    margin: 0 auto;
+                    margin-bottom: 8px;
+                    text-align: center;
+
+                    img {
+                        width: 80px;
+                        height: 80px;
+                    }
+
+                    #updataimg {
+                        display: none;
+                    }
+
+                    small {
+                        color: #666;
+                    }
+                }
+            }
+
+            form {
+                >div {
+                    margin-bottom: 10px;
+                    display: flex;
+
+                    small {
+                        margin-left: 6px;
+                    }
+
+                    [type="text"] {
+                        width: 150px;
+                    }
+
+                    #uppersondata21,
+                    select {
+                        width: 150px;
+                    }
+
+                    select {
+                        text-align: center;
+                    }
+
+                    .formtext {
+                        font-size: 10px;
+                        color: red;
+                    }
+
+                    [for="uppersondata21"] {
+                        margin-right: 2px;
+                    }
+
+                    #uppersondata22 {
+                        border: 1px solid #e6e6e6;
+                        width: 150px;
+                        text-align: center;
+                        display: inline-block;
+                        height: 30px;
+                        margin-left: 0;
+                    }
+                }
+
+
+            }
+
+        }
+
+        .modalfoot {
+            width: auto;
+            margin: 0 auto;
+            margin-bottom: 30px;
+
+            button {
+                background-color: #f2f2f2;
+                color: #b1aaaa;
+                padding: 8px 30px;
+                border: none;
+                border-radius: 5px;
+                margin: 0 10px;
+
+            }
+
+            button:hover {
+                background-color: #ff0000;
+                color: #fff;
+            }
+        }
+    }
+
+}
+
+#leaderboard {
+    .modal-content {
+        height: 470px;
+
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        table {
+            text-align: center;
+            margin: 0  40px;
+            margin-top: 30px;
+            tr td:nth-child(2),
+            tr td:nth-child(3) {
+                font-weight: 700;
+            }
+
+            thead {
+                tr {
+
+                    line-height: 55px;
+                }
+            }
+
+            tbody {
+
+                tr:nth-child(2n) {
+                    line-height: 45px;
+                }
+
+                tr:nth-child(2n-1) {
+                    line-height: 35px;
+                    background-color: #e9e9e9;
+                }
+
+            }
+
+        }
+
+
+    }
+
+}

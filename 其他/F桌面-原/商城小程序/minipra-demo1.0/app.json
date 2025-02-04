@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/home/home",
+    "pages/car/car"
+  ],
+
+  "entryPagePath":"pages/index/index",
+  "tabBar": {
+    "selectedColor":"#6966eb",
+    "list":[
+      {
+        "text":"首页",
+        "pagePath":"pages/index/index",
+        "iconPath":"./assets/home.png",
+        "selectedIconPath":"./assets/home-o.png"
+      },
+      {
+        "text":"分类",
+        "pagePath":"pages/logs/logs",
+        "iconPath":"./assets/category.png",
+        "selectedIconPath":"./assets/category-o.png"
+      },
+      {
+        "text":"购物车",
+        "pagePath":"pages/car/car",
+        "iconPath":"./assets/cart.png",
+        "selectedIconPath":"./assets/cart-o.png"
+      },
+      {
+        "text":"个人中心",
+        "pagePath":"pages/home/home",
+        "iconPath":"./assets/my.png",
+        "selectedIconPath":"./assets/my-o.png"
+      }
+    ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ff4d4f",
+    "navigationBarTitleText": "first小程序",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,5 @@
+/* pages/home/home.wxss */
+.scroll{
+    height: 70px;
+    background-color: aquamarine;
+}

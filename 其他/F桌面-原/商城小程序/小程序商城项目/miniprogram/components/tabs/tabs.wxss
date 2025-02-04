@@ -1,0 +1,27 @@
+.nav {
+  width: 200rpx;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+.nav .active {
+  background-color: #e1d037;
+  color: dodgerblue;
+}
+.nav .item1 {
+  width: 100%;
+  padding: 20rpx 0rpx;
+  font-size: 26rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.nav .item1 image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.nav .disnone {
+  display: none;
+  background-color: #e5e0e0;
+}
+.nav .disshow {
+  display: block;
+}

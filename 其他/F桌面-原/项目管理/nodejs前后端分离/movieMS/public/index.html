@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影管理</title>
+    <script src="./javascripts/jquery-3.5.1.min.js"></script>
+    <style>
+        .hidd {
+            overflow: hidden;
+        }
+
+        .float {
+
+            float: right;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .float div {
+            background-color: cadetblue;
+            padding: 10px 15px;
+            margin-right: 20px;
+        }
+
+        ul {
+            margin: 20px 0 0 50px;
+            list-style: none;
+            width: 100px;
+            text-align: center;
+        }
+
+        li {
+            line-height: 2.5;
+            background-color: rgb(12, 143, 143);
+            color: black;
+            font-size: large;
+        }
+
+        li:hover {
+            background-color: rgba(12, 12, 12, .7);
+            color: rgb(248, 239, 239);
+        }
+    </style>
+    <script>
+        //注销
+        function offs1() {
+            console.log("注销执行");
+            sessionStorage.removeItem('token');
+            location.href = '';
+        }
+        $(function () {
+            if (sessionStorage.getItem('token')) {
+                $.ajax({
+                    url: '/user',
+                    type: 'get',
+                    headers: {
+                      Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                    },
+                    success: function (data) {
+                        // alert(data.message);
+                        //是否是登陆状态
+                        console.log(data.data);
+                        if ((data.code == 200)) {
+                            $('.float').html(`<div>用户:${data.data.account}您好</div><div id="offs">注销</div>`)
+                        }
+                        $('#offs').on('click', offs1);
+                    }
+                })
+            } else {
+                $('.float').html(`<div class="log">登陆</div>
+            <div class="reg">注册</div>`)
+
+            }
+
+
+
+            $('.log').on('click', function () {
+                location.href = './log.html'
+            })
+            $('.reg').on('click', function () {
+                location.href = './reg.html'
+            })
+
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="hidd">
+        <div class="float">
+            <div class="log">登陆</div>
+            <div class="reg">注册</div>
+
+        </div>
+
+    </div>
+    <div>
+        <ul>
+            <li><a href="./movie.html">电影管理</a></li>
+            <li><a href="./cinema.html">影院展示</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

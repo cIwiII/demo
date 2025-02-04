@@ -1,0 +1,42 @@
+<view class="category" hover-class="none" hover-stop-propagation="false">
+    <!-- 左侧的滑动模块 -->
+    <scroll-view class="leftMenu" scroll-y="{{true}}">
+        <view 
+        wx:for="{{categoryList}}" 
+        wx:key="_id" 
+        bindtap="changeIndex"
+        data-index="{{index}}"
+        class="item {{selectedIndex==index?'active':''}}">
+            <text>{{item.cat_name}}</text>
+        </view>
+    </scroll-view>
+    <!-- 右侧滑动模块 -->
+    <scroll-view class="rightContent" scroll-y="{{true}}">
+        <!-- 每一个产品 -->
+        <view 
+            class="product"
+            wx:for="{{productList}}"
+            wx:key="_id"
+            >
+            <view class="topic">
+                <view>{{item.cat_name}}</view>
+            </view>
+            <view 
+            class="list"
+            wx:for="{{item.children}}"
+            wx:for-index="index2"
+            wx:for-item="item2"
+            >
+                <navigator url="/pages/goods_list/index" open-type="navigate">
+                    <view class="left">
+                        <image src="{{item2.cat_icon}}" mode="widthFix"> </image>
+                    </view>
+                    <view class="buy">
+                        <view>类型：{{item2.cat_name}}</view>
+                        <text></text>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </scroll-view>
+</view>

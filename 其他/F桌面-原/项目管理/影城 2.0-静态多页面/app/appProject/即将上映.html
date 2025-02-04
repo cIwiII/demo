@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即将上映</title>
+    <link rel="stylesheet" href="./css/即将上映.min.css">
+    <script>
+        function adapter(){
+            //获取屏幕的宽度
+            var width=window.innerWidth;
+            // console.log(width);
+            //将750作为标准屏幕
+            if(width>750){
+                width=750;
+            }
+            //设置font-size
+            // console.log(width/75);
+            document.documentElement.style.fontSize=width/37.5+'px';
+        }
+        window.onload=function(){
+            adapter();
+        }
+        window.onresize=function(){
+            adapter();
+        }
+
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div><img src="./img/箭头.png" alt=""></div>
+        <p><strong>特色电影</strong></p>
+        <div class="theaters">
+            <div id="listL">正在上映</div>
+            <div id="listR">即将上映</div>
+        </div>
+    </div>
+    <div class="movieListL"></div>
+    <div class="movieListR">
+        <div class="cards">
+            <div><img src="" alt=""></div>
+            <div>
+                <b>哥斯拉大战金刚狼</b>
+                <div class="table">
+                    <table>
+                        <tr>
+                            <td>类型</td>
+                            <td>动作冒险科幻</td>
+                        </tr>
+                        <tr>
+                            <td>片长</td>
+                            <td>113分钟</td>
+                        </tr>
+                        <tr>
+                            <td>评分</td>
+                            <td>8.5</td>
+                        </tr>
+                    </table>
+                </div>
+                <a href="">
+                    <div class="moviePay">立即购票</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- cards-end -->
+    </div>
+
+</body>
+</html>

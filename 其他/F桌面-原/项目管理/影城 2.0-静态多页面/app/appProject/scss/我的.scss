@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+//    font-size: 1.5rem;
+
+.boxs {
+    .header {
+        padding: 6rem 2rem 2rem;
+        width: 100%;
+        height: 27rem;
+        background-color: rgb(11, 25, 63);
+        background-image: url(../img/树突.png);
+        background-position: right top;
+        background-repeat: no-repeat;
+        background-size: 9rem;
+        box-sizing: border-box;
+        color: white;
+
+        p {
+            margin: 0.75rem 0;
+            font-size: 2rem;
+        }
+
+        .headImg {
+            text-align: center;
+            // width: 100%;
+            margin-top: 3rem;
+
+            img {
+                margin: 0 auto;
+                margin-bottom: 1rem;
+                width: 9.5rem;
+            }
+        }
+    }
+
+    .bxt {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 2rem;
+        border-bottom: 1px solid #cccccb;
+
+        div {
+            line-height: 6.5rem;
+            text-align: center;
+        }
+
+        img {
+            width: 0.75rem;
+            height: 1.3rem;
+        }
+
+        &:last-child {
+            color: red;
+        }
+    }
+}
+
+
+.lst {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    .bottom4 {
+        display: flex;
+        padding: 0 2rem;
+        justify-content: space-around;
+
+        >div {
+            text-align: center;
+
+            div:first-child {
+                width: 2.2rem;
+                height: 2.2rem;
+                background-image: url(../img/home4.png);
+                background-repeat: no-repeat;
+                background-position: -8.8rem 0;
+                background-size: 11rem;
+                margin-bottom: 0.25rem;
+            }
+        }
+
+        .two div:first-child {
+            background-position: -3rem 0;
+        }
+
+        .three div:first-child {
+            background-position: -6rem 0;
+        }
+
+        .four div:first-child {
+            background-position: 0 -2.6rem;
+        }
+    }
+}

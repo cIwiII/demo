@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置中心</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        .rights {
+            float: right;
+        }
+
+        .lefts {
+            float: left;
+        }
+
+        .imgdiv {
+            margin-top: 30px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $.ajax({
+                url: '/persetting',
+                type: 'get',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                },
+                success: function (data) {
+                    console.log(data.message);
+                },
+                error: function () {
+                    alert('请先登陆,才能操作');
+                    location.href = './index.html'
+
+                }
+            })
+            function getImgURL(file) {
+                var url = null;
+                if (window.createObjectURL != undefined) {// 兼容basic
+                    url = window.createObjectURL(file)
+                } else if (window.URL != undefined) {//兼容mozilla(firefox)
+                    url = window.URL.createObjectURL(file)
+                } else if (window.webkitURL != undefined) {  //兼容谷歌 or webtik
+                    url = window.webkitURL.createObjectURL(file)
+                }
+                return url;
+            }
+            $('#files').on('change', function () {
+                let objUrl = getImgURL(this.files[0]);
+                let size = this.files[0].size;
+                if (size >= 1024000 * 10) {//图片超过10m
+                    alert('图片超过10M,换个小点的图片吧'); return
+                }
+                $('.imgs').attr('src', objUrl)
+            })
+            //文件上传
+            $('.filesBtn').on('click', upload);
+            function upload() {
+                //获取文件--对象 
+                let file = $('#files').get(0).files[0];
+                //检查文件是否合法
+                if (!file) {
+                    alert('请选择文件');
+                    return
+                }
+                console.log('上传信息：' + file);
+                //判断是否是指定类型，建立正则
+                let imgReg = /\.(png|jpg|jpeg|gif)$/;
+                if (!imgReg.test(file.name)) {
+                    alert('文件格式不正确，请重新选择');
+                    return
+                }
+                //文件只能以以表单数据上传，建立表单,并添加对象
+                let form = new FormData(); form.append('imgname', file);
+                $.ajax({
+                    url: '/persetting',
+                    type: 'post',
+                    data: form,
+                    //阻止jquery数据自动格式化处理（以非JSON传输）
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        alert(data.message);
+                        $('.imgs').prop('src', data.data)
+                    }
+                })
+            }
+            //密码修改
+            $('#putpwd').on('click', putp)
+            function putp() {
+                let oldpwd = $('#oldpwd').val(),
+                    newpwd = $('#newpwd').val(),
+                    gnewpwd = $('#gnewpwd').val();
+                console.log(oldpwd, newpwd, gnewpwd);
+                if (newpwd == gnewpwd) {
+                    $.ajax({
+                        url: `/users/${oldpwd}/${newpwd}`,
+                        type: 'put',
+                        headers: {
+                            Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                        },
+                        success: function (data) {
+                            alert(data.message);
+                            if (data.code == 200) {
+                                sessionStorage.removeItem('token');
+                                location.href = './index.html'
+                            }
+                        },
+                        error: function () {
+                            alert('请先登陆,才能操作');
+                            location.href = './index.html'
+                        }
+                    })
+                } else {
+                    alert('密码不一致')
+                }
+            }
+            //永久注销
+            $('#deletes').on('click', function () {
+                let deletes = confirm('是否确认永久注销账号');
+                if (deletes) {
+                    $.ajax({
+                        url: '/users',
+                        type: 'delete',
+                        headers: {
+                            Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                        },
+                        success: function (data) {
+                            alert(data.message);
+                            if (data.code == 200) {
+                                sessionStorage.removeItem('token');
+                                location.href = './index.html'
+                            }
+                        }
+                        // error: function () {
+                        //     alert('请先登陆,才能操作');
+                        //     location.href = './index.html'
+                        // }
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="rights">
+        <form class="formAp">
+            <span>修改密码：</span>
+            <div>
+                <span>输入原密码</span>
+                <input type="password" id="oldpwd">
+            </div>
+            <div>
+                <span>输入新密码</span>
+                <input type="password" id="newpwd">
+            </div>
+            <div>
+                <span>确认密码</span>
+                <input type="password" id="gnewpwd">
+            </div>
+            <button id="putpwd">提交修改</button><br><br>
+            <button id="deletes">永久注销</button>
+        </form>
+
+    </div>
+    <div class="lefts">
+        <span>头像上传</span>
+        <input type="file" name="" id="files">
+        <button class="filesBtn">上传</button>
+        <div class="imgdiv">
+            <p>预览</p>
+            <img src="" alt="" class="imgs">
+        </div>
+    </div>
+
+
+</body>
+
+</html>

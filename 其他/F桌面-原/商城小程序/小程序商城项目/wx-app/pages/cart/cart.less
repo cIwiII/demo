@@ -1,0 +1,103 @@
+page{
+    background-color: rgba(230, 228, 225, 0.563);
+}
+.carTitle{
+   line-height: 7vh;
+   padding-left: 20rpx;
+   font-size: 40rpx;
+   color: #fff;
+   background-color: var(--themeColor);
+}
+scroll-view{
+    margin-top: 3vh;
+    height: 78vh;
+    .cartA{
+        box-sizing: border-box;
+        border-radius: 8rpx;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #fff;
+        margin: 0 20rpx 20rpx;
+        input{
+            width: 15%;
+            height: 30rpx;
+            padding: 40rpx;
+            background-color: aquamarine;
+        }
+        .img{
+            width: 20%;
+            height: 30rpx;
+            margin: 20rpx 0;
+        }
+        .right{
+            width: 60%;
+            box-sizing: border-box;
+            padding: 20rpx;
+            .text{
+                
+                font-size: 24rpx;
+                color: black;
+                text-align: center;
+                // 这一行文本高度必须设置
+                height: 66rpx;
+                // 设置BFC超过的部分被隐藏
+                overflow: hidden;
+                // 设置文本超出过后显示效果
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                // 文本默认两行，超出两行就会显示。。。
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            
+            .redborder{
+                border: 2rpx solid red;
+                border-radius: 8rpx;
+                margin: 30rpx 0;
+            }
+            .bottom{
+                display: flex;
+                justify-content: space-between;
+                .center{
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    
+                    view{
+                        width: 50rpx;
+                        text-align: center;
+                        background-color: rgb(180, 177, 175);
+                    }
+                    span{
+                        width: 30rpx;
+                    }
+                }
+                .red{
+                    color: red;
+                }
+            }
+            
+        }
+        
+    }
+    
+}
+.allChiose{
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    padding: 0 20rpx;
+    justify-content: space-between;
+    background-color: #fff;
+    margin-top: 2vh;
+    .totalPriceColor{
+        color: red;
+    }
+    .accounts{
+        background-color: rgb(240, 167, 49);
+        padding: 20rpx 30rpx;
+        border-radius: 8rpx;
+    }
+}

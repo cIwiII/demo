@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级管理</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        .div {
+            margin: 0 auto;
+            width: 600px;
+
+        }
+
+        .div2 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input {
+            width: 70px;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+        }
+
+        table tr th:nth-child(1),
+        table tr td:nth-child(1) {
+            width: 7%;
+
+        }
+
+        table tr th:nth-child(2) {
+            width: 10%;
+        }
+
+        table tr th:nth-child(3),
+        table tr td:nth-child(3) {
+            width: 10%;
+        }
+
+        table tr th:nth-child(4),
+        table tr td:nth-child(4) {
+            width: 10%;
+        }
+
+        /* table tr th:nth-child(5),
+        table tr td:nth-child(5) {
+            width: 20%;
+        } */
+    </style>
+    <script>
+        //渲染
+        function render(data) {
+            let content = '';
+            data.forEach(val => {
+                content += `<tr>
+                                <td>${val._id}</td>
+                                <td>${val.name}</td>
+                                <td>${val.scroe}</td>
+                                <td>${val.classTime}</td>
+                                <td>
+                                    <span>删除</span>
+                                    <span>修改</span>
+                                </td>
+                              </tr>`
+            });
+            $('tbody').html(content);
+        }
+
+        $(function () {
+            $.ajax({
+                url: '/class',
+                type: 'get',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                },
+                success: function (data) {
+                    render(data.data);
+                    // console.log(data.data)
+                },
+                error: function () {
+                    alert('请先登陆');
+                    location.href = './index.html'
+
+                }
+            });
+            
+
+            $('tbody').on('click', oper);
+            //删改
+            function oper(event) {
+                let opeId = event.target.parentElement;
+                let eleTr = event.target.parentElement.parentElement;
+                if (event.target.innerText == '修改') {
+
+                    eleTr.children[1].innerHTML = `<input type="text"  value="${eleTr.children[1].innerText}">`;
+                    eleTr.children[2].innerHTML = `<input type="text"  value="${eleTr.children[2].innerText}">`;
+                    eleTr.children[3].innerHTML = `<input type="text"  value="${eleTr.children[3].innerText}">`;
+
+                    opeId.innerHTML = `<button>确定</button>`;
+                } else if (event.target.innerText == '删除') {
+                    let id = eleTr.children[0].innerText;
+                    console.log(id);
+                    $.ajax({
+                        url: `/class/${id}`,
+                        type: 'delete',
+                        success: function (data) {
+                            render(data.data);
+                            // 先删除再显示弹窗
+                            setTimeout(function () {
+                                alert(data.message);
+                            }, 0)
+                        }
+                    })
+                } else if (event.target.innerText == '确定') {
+                    let id = eleTr.children[0].innerText;
+                    let name = eleTr.children[1].firstElementChild.value;
+                    let scroe = eleTr.children[2].firstElementChild.value;
+                    let classTime = eleTr.children[3].firstElementChild.value;
+
+                    console.log(id, name)
+                    $.ajax({
+                        url: `/class/${id}/${name}/${scroe}/${classTime}`,
+                        type: 'put',
+                        success: function (data) {
+                            alert(data.message);
+                            render(data.data);
+                            // if (data.code == 200) {
+
+                            // }
+                        }
+                    })
+                }
+            }
+
+            //添加
+            $('.add').on('click', add)
+            function add(event) {
+                let val = $('#add').val();
+                let vale = $('#ade').val();
+                let valf = $('#adf').val();
+                if (val.length <= 0) {
+                    alert('不能为空')
+                } else {
+                    $.ajax({
+                        url: `/class/${val}/${vale}/${valf}`,
+                        type: 'post',
+                        success: function (data) {
+                            alert(data.message)
+                            if (data.code == 200) {
+                                render(data.data)
+                                $('.forms').reset()
+                            }
+
+
+
+                        }
+                    })
+                }
+            }
+            //查询
+            $('#search').on('input', search())
+            function search() {
+                let timer = null;
+                return function () {
+                    console.log('ok')
+                    if (timer != null) {
+                        clearTimeout(timer);
+                    }
+                    timer = setTimeout(function () {
+                        $.ajax({
+                            url: '/class/',
+                            type: 'get',
+                            success: function (data) {
+                                let str = $('#search').val();
+                                mArr = data.data.filter(val => val.classTime == str || val.scroe == str || val.name.includes(str));
+                                render(mArr)
+                            }
+                        });
+                    }, 2000)
+                }
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="div">
+        <div class="div2">
+            <input type="text" placeholder="输入查询内容" id="search">
+            <form class="forms">
+                <input type="text" placeholder="请输入添加的班级名" id="add">
+                <input type="text" placeholder="请输入学分" id="ade">
+                <input type="text" placeholder="请输入课时" id="adf">
+                <button class="add">添加</button>
+            </form>
+        </div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>课程</th>
+                    <th>学分</th>
+                    <th>课时</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

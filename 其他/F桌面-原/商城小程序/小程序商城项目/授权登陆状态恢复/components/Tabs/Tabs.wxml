@@ -1,0 +1,14 @@
+<view class="tabs" hover-class="none" hover-stop-propagation="false">
+    <view 
+        wx:for="{{tabs}}"
+        bindtap="changeChoose"
+        data-index="{{index}}"
+        class="item {{item.isActive?'active':''}}">
+        <text>{{item.title}}</text>
+    </view>
+</view>
+<!-- 用于显示我们页面上的动态数据 -->
+<view class="content">
+    <!-- 占位 -->
+    <slot name="listslot"></slot>
+</view>

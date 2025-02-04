@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./bootstrap-4.6.1-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-4.6.1-dist/js/jquery-3.5.1.min.js"></script>
+    <script src="./bootstrap-4.6.1-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/payment.min.css">
+    <script>
+        $.ajax({
+            url: 'https://www.fastmock.site/mock/bb4157f45a0b5ffdcb3f6d984517a6c0/woniuMovie/getAllMovies',
+            type: 'get',
+            success: function (data) {
+                var movieTitleArr = data.movies.map(function (val) {
+                    return { id: val.id, title: val.title }
+                });
+                var content = '';
+                console.log(movieTitleArr)
+                for (var index in movieTitleArr) {
+                    
+                    content += `<option data-v="${movieTitleArr[index].id}">${movieTitleArr[index].title}</option>`
+                }
+                console.log(content)
+                $('#searchList').html(content);
+                $('.btsearch').on('click',function(){
+                    //获取搜索框中的值
+                    var datav=$('.search').val();
+                    var opArr=document.querySelectorAll('#searchList option');
+                    console.log(opArr)
+                    var id
+                    for(var index=0;index<opArr.length;index++){
+                        if(opArr[index].innerHTML==datav){       
+                            id=opArr[index].getAttribute('data-v');  
+                        }
+                    }
+                            console.log(id);
+                    location.assign(`./movie-details.html?moveId=${id}`)
+                })
+            }
+        });
+        $(function () {
+      var loginAcc = sessionStorage.getItem('loginAcc');
+      if (loginAcc == null) {
+        //未登录
+        document.querySelector('.LandingAndRegistration').innerHTML = `
+                <a href="" class="a1 " data-toggle="modal" data-target="#exampleModal1">登录</a>
+            <a href="" class="a1" data-toggle="modal" data-target="#exampleModal1">注册</a>
+                                                                `
+      } else {
+        //已登录
+        document.querySelector('.LandingAndRegistration').innerHTML = `欢迎${loginAcc}!<a href="javaScript:loginOut()">注销</a>`;
+      }
+    })
+    function loginOut() {
+      sessionStorage.removeItem('loginAcc');
+      location.reload();
+    }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="top">
+        <div class="center">
+            <div class="left">下载APP</div>
+            <div class="right LandingAndRegistration">
+                <a href="" class="a1" data-toggle="modal" data-target="#exampleModal1">登录</a>
+                <a href="" class="a1" data-toggle="modal" data-target="#exampleModal1">注册</a>
+            </div>
+        </div>
+    </div>
+    <!-- 注册模态框 -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                role="tab" aria-controls="pills-home" aria-selected="false">登录</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                role="tab" aria-controls="pills-profile" aria-selected="true">注册</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <input type="text" placeholder="请输入手机号" class="in1">
+                            <input type="password" placeholder="请输入密码" class="in2">
+                            <div>
+                                <button>登录</button>
+                            </div>
+                            <div class="a1">
+                                <input type="checkbox" checked>&nbsp; &nbsp; 下次自动登录
+                                <a href="">忘记密码？</a>
+                            </div>
+                            <div class="bor"></div>
+                            <div class="ck1">
+                                <input type="checkbox">
+                                &nbsp; &nbsp;<span>已阅读并同意《服务设计启发式线上工具服务协议》</span>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade show active" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab">
+                            <input type="text" placeholder="请输入手机号">
+                            <input type="password" placeholder="请输入密码">
+                            <input type="password" placeholder="请确认密码">
+                            <div>
+                                <button>立即注册</button>
+                            </div>
+                            <div class="user">
+                                <a>立即登录</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="center">
+            <div class="left">
+                <img src="./images/zy_03.png" alt="">
+                <span>全国</span>
+                <div class="icon"></div>
+            </div>
+            <div class="cen">
+                <ul>
+                    <li><a href="./Home-page.html">首页</a></li>
+                    <li><a href="./movie.html">影片</a></li>
+                    <li><a href="./cinema.html">影城</a></li>
+                    <li><a href="./advisorya.html">影城资讯</a></li>
+                    <li><a href="./GR-page.html">会员中心</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <input type="text" class="search" list="searchList" placeholder="佩奇 白蛇2 我是猫">
+                <datalist id="searchList">
+                        <!-- js-option对象 -->
+                </datalist>
+                <button class="bt1 btsearch"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 正文部分 -->
+
+
+    <div class="content">
+
+        <div class="item">
+            <div class="pill">
+                <ul class="item-1">
+                    <li class="one">1</li>
+                    <li class="two"></li>
+                    <li class="one">2</li>
+                    <li class="two"></li>
+                    <li class="one">3</li>
+                    <li class="two"></li>
+                    <li class="one">4</li>
+                </ul>
+
+                <ul class="item-2">
+                    <li class="five">选择影片场次</li>
+                    <li class="five">选择座位</li>
+                    <li class="five">14内分钟付款</li>
+                    <li class="five">影院取票观影</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="item-two">
+
+            <div class="pill-u">
+                <div>
+                    <img src="./images/支付成功_03.png" alt="">
+                </div>
+                <div>
+                    <div class="pill-bt">
+                        支付成功
+                    </div>
+                    <div>
+                        请提前15分钟到影院领取电影票
+                    </div>
+                </div>
+            </div>
+
+            <div class="pill-t">
+                <div class="pic">
+                    <div><img src="./images/支付确认_07.png" alt=""></div>
+                    <div>请仔细核对场次信息，按时到影院取票入场</div>
+                </div>
+
+                <div class="moive">
+                    <div class="moive-1"></div>
+                    <div class="moive-2">
+                        <div class="btn-moive"></div>
+                        <div class="btn-moive-1">
+                            <div>待使用</div>
+                            <div class="btn-moive-2">取票</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="center">
+            <div class="top">
+                <div>
+                    <p><a href="">新手上路</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">注册登陆问题</a></h6>
+                    <h6><a href="">用户绑定会员卡问题</a></h6>
+                    <h6><a href="">影票相关问题</a></h6>
+                    <h6><a href="">票价和支付问题</a></h6>
+                    <h6><a href="">取票凭证码和取票问题</a></h6>
+                </div>
+
+                <div>
+                    <p><a href="">购票指南</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">用户购票流程</a></h6>
+                    <h6><a href="">取票观影指南</a></h6>
+                    <h6><a href="">会员卡支付相关说明</a></h6>
+                    <h6><a href="">网银支付相关说明</a></h6>
+                </div>
+                <div>
+                    <p><a href="">会员权益</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">会员订票权益</a></h6>
+                    <h6><a href="">会员积分权益</a></h6>
+                    <h6><a href="">入会资格</a></h6>
+                    <h6><a href="">会员卡折扣说明</a></h6>
+                </div>
+                <div>
+                    <p><a href="">联系我们</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">手机客户端介绍与下载</a></h6>
+                    <h6><a href="">影片信息查询</a></h6>
+                    <h6><a href="">手机自助购票</a></h6> </a></h6>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="bottom">
+        <div>
+            <ul>
+                <li><a href="">公司介绍</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">合作咨询</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">友情链接</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">网站地图</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">站长统计</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">网站声明</a></li>
+                <span class="sp1">-</span>
+                <li><a href="" class="last">帮助中心</a></li>
+
+            </ul>
+            <span>Copyright @ 2021 ed by woniuxy </span>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

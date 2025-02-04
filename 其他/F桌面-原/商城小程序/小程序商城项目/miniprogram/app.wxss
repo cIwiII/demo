@@ -1,0 +1,14 @@
+/* 给常用的标签设置公共样式 */
+page,view,text,navigator,swiper,swiper-item{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+/* 整个页面我们需要设置一个主题色;一旦在这个变化,整个页面中用到这个主主题色的地方都变化 */
+page{
+  /* 在移动端一般默认14px就足够 */
+  font-size: 28rpx;
+  /* 设置一个主题色,这个颜色做成一个变量 */
+  --themeColor:#ff7159
+}
+

@@ -1,0 +1,32 @@
+.banner swiper {
+  height: calc(100vw * 352 / 1125);
+}
+.banner swiper image {
+  width: 100%;
+}
+.cont {
+  background-color: #f7f7f7;
+}
+.cont .inblock {
+  display: inline-block;
+  text-align: center;
+  width: 25%;
+}
+.cont .inblock image {
+  width: 80%;
+}
+.cont .inblock view {
+  text-align: center;
+  margin-bottom: 8rpx;
+}
+.hi {
+  text-align: center;
+  margin: 10rpx 0 70rpx;
+}
+.scroll {
+  width: 100%;
+  height: 500rpx;
+}
+.scroll image {
+  width: 100%;
+}

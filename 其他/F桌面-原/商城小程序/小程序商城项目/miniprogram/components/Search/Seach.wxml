@@ -1,0 +1,6 @@
+<view class="search" hover-class="none" hover-stop-propagation="false">
+    <navigator url="../../pages/logs/logs" open-type="navigate">请输入搜索内容</navigator>
+    <!-- 存放小图标 -->
+    <text></text>
+</view>
+

@@ -1,0 +1,482 @@
+.top {
+  width: 100%;
+  height: 40px;
+  background-color: #f0f0f0;
+}
+
+.top .center {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.top .center .left {
+  color: #9a9a9a;
+  font-size: 14px;
+}
+
+.top .center .right a {
+  color: #9a9a9a;
+  margin: 0;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0 20px;
+  border-right: 1px solid #9a9a9a;
+}
+
+.top .center .right .a1 {
+  border: 0;
+}
+
+#exampleModal1 .modal-dialog {
+  width: 400px;
+}
+
+#exampleModal1 .modal-dialog .modal-content {
+  padding: 10px 40px;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-header {
+  position: relative;
+  border: 0;
+  padding: 0;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-header ul li a {
+  color: #333;
+  background-color: white;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-header button {
+  position: absolute;
+  top: 6px;
+  right: -24px;
+  width: 40px;
+  height: 40px;
+  background-color: #222320;
+  border-bottom-left-radius: 40px;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-header button span {
+  position: absolute;
+  top: -6px;
+  left: 13px;
+  color: white;
+  font-size: 35px;
+  font-weight: 300;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body {
+  padding: 0;
+  margin-top: 10px;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-profile input {
+  width: 100%;
+  height: 46px;
+  margin-top: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #d8d8d8;
+  border-radius: 7px;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-profile input::-moz-placeholder {
+  font-size: 14px;
+  color: #a0a0a0;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-profile button {
+  margin-top: 30px;
+  width: 100%;
+  height: 46px;
+  border-radius: 7px;
+  background-color: #f99135;
+  border: 0;
+  color: white;
+  font-size: 20px;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-profile .user {
+  padding: 20px 0;
+  font-size: 14px;
+  text-align: right;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-profile .user a {
+  text-decoration: none;
+  color: #f99135;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-home .in1,
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-home .in2 {
+  width: 100%;
+  height: 46px;
+  margin-top: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #d8d8d8;
+  border-radius: 7px;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-home .a1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-home .a1 a {
+  float: right;
+  color: #f99135;
+  text-decoration: none;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-home .bor {
+  width: 100%;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-home .ck1 {
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-home .ck1 input {
+  font-size: 12px;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-home .ck1 span {
+  font-size: 12px;
+}
+
+#exampleModal1 .modal-dialog .modal-content .modal-body #pills-home button {
+  width: 100%;
+  height: 46px;
+  border-radius: 7px;
+  background-color: #f99135;
+  border: 0;
+  color: white;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.header {
+  height: 90px;
+}
+
+.header .center {
+  width: 1200px;
+  margin: 0 auto;
+  height: 90px;
+  display: flex;
+}
+
+.header .center .left {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header .center .left .icon {
+  width: 10px;
+  height: 20px;
+  background-image: url(../img/zy_06.png);
+  background-position: 0 5px;
+  margin-left: 5px;
+}
+
+.header .center .left span {
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+.header .center .cen {
+  height: 100%;
+  width: 50%;
+}
+
+.header .center .cen ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  color: #333;
+  display: flex;
+}
+
+.header .center .cen ul li {
+  height: 100%;
+  display: flex;
+}
+
+.header .center .cen ul li a {
+  font-size: 18px;
+  height: 90px;
+  padding: 0 22px;
+  line-height: 90px;
+  color: #333;
+  text-decoration: none;
+}
+
+.header .center .cen ul li a:hover {
+  background-color: #f99135;
+  color: white;
+}
+
+.header .center .right {
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.header .center .right .search {
+  height: 44px;
+  width: 100%;
+  border: 2px solid #f99135;
+  border-radius: 22px;
+}
+
+.header .center .right .bt1 {
+  height: 44px;
+  border-radius: 22px;
+  width: 30%;
+  border: 2px solid #f99135;
+  background-color: #f99135;
+  margin-left: -33px;
+  background-image: url(../img/zy0_06.png);
+  background-repeat: no-repeat;
+  background-position: 23px 10px;
+}
+
+.movie-content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-content .choice {
+  margin: 40px 0 35px;
+  padding: 0 20px;
+  border: 1px solid #e5e5e5;
+}
+
+.movie-content .choice > div {
+  border-bottom: 1px dashed #e5e5e5;
+}
+
+.movie-content .choice > div span {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 65px;
+  height: 30px;
+  color: #9a9a9a;
+  text-align: left center;
+  line-height: 30px;
+}
+
+.movie-content .choice > div .movie-project, .movie-content .choice > div .area, .movie-content .choice > div .special, .movie-content .choice > div .service {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 92%;
+  margin: 8px 0;
+}
+
+.movie-content .choice > div .movie-project div, .movie-content .choice > div .area div, .movie-content .choice > div .special div, .movie-content .choice > div .service div {
+  padding: 5px 9px;
+  margin: 0 3px;
+}
+
+.movie-content .choice > div .movie-project div:first-child, .movie-content .choice > div .area div:first-child, .movie-content .choice > div .special div:first-child, .movie-content .choice > div .service div:first-child {
+  background-color: #f79137;
+  border-radius: 15px;
+}
+
+.movie-content .choice > div .movie-project div:hover, .movie-content .choice > div .area div:hover, .movie-content .choice > div .special div:hover, .movie-content .choice > div .service div:hover {
+  background-color: #f79137;
+  border-radius: 15px;
+}
+
+.movie-content .choice > div .movie-project div {
+  margin: 0;
+}
+
+.movie-content .choice div:last-child {
+  border: 0;
+}
+
+.movie-content .movie-center .cast, .movie-content .movie-center .movie-list, .movie-content .movie-center .buy-tickets {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie-content .movie-center .cast .bstrong, .movie-content .movie-center .movie-list .bstrong, .movie-content .movie-center .buy-tickets .bstrong {
+  line-height: 70px;
+  width: 100px;
+  text-align: left center;
+}
+
+.movie-content .movie-center .cast .bstrong b, .movie-content .movie-center .movie-list .bstrong b, .movie-content .movie-center .buy-tickets .bstrong b {
+  font-weight: 900;
+  color: #f79137;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.movie-content .movie-center .cast .bstrong strong, .movie-content .movie-center .movie-list .bstrong strong, .movie-content .movie-center .buy-tickets .bstrong strong {
+  font-size: larger;
+}
+
+.movie-content .movie-center .movie-list {
+  padding: 20px 0;
+  border-bottom: 1px dashed #999999;
+}
+
+.movie-content .movie-center .movie-list > div:first-child > p:first-child {
+  margin: 0;
+}
+
+.movie-content .movie-center .movie-list > div:first-child > p:nth-child(2) {
+  margin: 5px 0;
+}
+
+.movie-content .movie-center .movie-list > div:first-child > p:nth-child(2) small {
+  color: #999999;
+}
+
+.movie-content .movie-center .movie-list > div:first-child span {
+  border: 1px solid #41a1c8;
+  color: #41a1c8;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.movie-content .movie-center .movie-list .buy-tickets {
+  align-items: flex-start;
+  font-size: 80%;
+  color: #999999;
+}
+
+.movie-content .movie-center .movie-list .buy-tickets div:first-child {
+  margin-top: 5px;
+}
+
+.movie-content .movie-center .movie-list .buy-tickets div:last-child {
+  margin: 0 20px 0 30px;
+  font-size: 16px;
+  background-color: #f79137;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+
+.movie-content .movie-center .movie-list .buy-tickets div:last-child a {
+  color: white;
+  text-decoration: none;
+}
+
+.movie-content .paginal {
+  width: 440px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-content .paginal div {
+  padding: 4px 11px;
+  border: 1px solid #999999;
+}
+
+.movie-content .paginal div:hover {
+  background-color: #f79137;
+}
+
+.footer {
+  width: 100%;
+  background-color: #262426;
+  margin-top: 50px;
+  border-bottom: 1px solid #545454;
+}
+
+.footer .center {
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 70px;
+  padding: 20px 0;
+  border-bottom: #545454 1px solid;
+  height: 230px;
+}
+
+.footer .center .top {
+  width: 100%;
+  display: flex;
+  background-color: #262426;
+}
+
+.footer .center .top > div {
+  width: 25%;
+}
+
+.footer .center .top > div .bor {
+  border-bottom: 3px solid #f99135;
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.footer .center .top > div p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.footer .center .top > div h6 {
+  font-size: 14px;
+}
+
+.footer .center .top > div a {
+  text-decoration: none;
+  color: white;
+}
+
+.bottom {
+  background-color: #262426;
+  padding: 15px 0;
+}
+
+.bottom > div {
+  text-align: center;
+  width: 540px;
+  margin: 0 auto;
+}
+
+.bottom > div ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  font-size: 12px;
+}
+
+.bottom > div ul li a {
+  color: white;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.bottom > div ul li .last {
+  border: 0;
+}
+
+.bottom > div ul .sp1 {
+  color: white;
+}
+
+.bottom > div span {
+  font-size: 12px;
+  color: white;
+}

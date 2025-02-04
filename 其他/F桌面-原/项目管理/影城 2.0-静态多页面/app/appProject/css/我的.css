@@ -1,0 +1,100 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.boxs .header {
+  padding: 6rem 2rem 2rem;
+  width: 100%;
+  height: 27rem;
+  background-color: #0b193f;
+  background-image: url(../img/树突.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: 9rem;
+  box-sizing: border-box;
+  color: white;
+}
+
+.boxs .header p {
+  margin: 0.75rem 0;
+  font-size: 2rem;
+}
+
+.boxs .header .headImg {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.boxs .header .headImg img {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  width: 9.5rem;
+}
+
+.boxs .bxt {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 2rem;
+  border-bottom: 1px solid #cccccb;
+}
+
+.boxs .bxt div {
+  line-height: 6.5rem;
+  text-align: center;
+}
+
+.boxs .bxt img {
+  width: 0.75rem;
+  height: 1.3rem;
+}
+
+.boxs .bxt:last-child {
+  color: red;
+}
+
+.lst {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.lst .bottom4 {
+  display: flex;
+  padding: 0 2rem;
+  justify-content: space-around;
+}
+
+.lst .bottom4 > div {
+  text-align: center;
+}
+
+.lst .bottom4 > div div:first-child {
+  width: 2.2rem;
+  height: 2.2rem;
+  background-image: url(../img/home4.png);
+  background-repeat: no-repeat;
+  background-position: -8.8rem 0;
+  background-size: 11rem;
+  margin-bottom: 0.25rem;
+}
+
+.lst .bottom4 .two div:first-child {
+  background-position: -3rem 0;
+}
+
+.lst .bottom4 .three div:first-child {
+  background-position: -6rem 0;
+}
+
+.lst .bottom4 .four div:first-child {
+  background-position: 0 -2.6rem;
+}

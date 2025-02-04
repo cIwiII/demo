@@ -1,0 +1,89 @@
+基本插件-----------------------------------------------
+1、chinese：汉化
+2、auto Rename tay ：自动补全结尾标签
+3、html CSS support : html文档中支持css提示
+4、html：5t提示文档创建
+5、image preview ：html图片缩略图
+6、intellisense for css class names in HTML提示外部引入的css的name属性
+7、live server ：启用小型服务器，浏览器打开
+8、open in brower ：指定浏览器打开
+9、vue使用｛
+       vetur   　　 语法高亮、智能感知、Emmet等
+　　VueHelper  　　snippet代码片段
+       ESLint    　　将ESLint JavaScript集成到VS代码中。
+　　prettier    代码规范性插件
+	｝
+10、path intellisense: 引入文件名填充
+"editor.autoIndent": "false",setting.json该项控制标签换行自动缩进，
+11、Element UI Snippets：vue专用
+12、AutoFileName，提示文件名
+13、WXML - Language Service：微信小程序代码提示
+14、小程序助手v0.0.6
+15、vscode wxmlv0.1.9
+16、wechat-snippet：小程序代码格式化插件
+17、vscode-icons：文件图标提示
+18、Easy LESS v1.7.3：微信小程序less转css
+ //微信小程序less转css 45
+    "less.compile": {
+        "outExt": ".wxss"
+    },
+19、easy sass：以`.sass`或`.scss`为后缀的文件，在里面书写css代码
+
+
+
+
+
+--------可有无------
+1、jQuery Code Snippets
+ jQuery代码提示，超过130个用于JavaScript代码的jQuery代码片段。
+2、HTMLHint
+html代码检测，支持html5
+
+settings.json基础配置---------------
+{
+    "files.autoSave": "afterDelay",
+    "easysass.targetDir": "./css",
+    "git.autofetch": true,
+    "window.zoomLevel": 0.5,//页面大小设置
+    "editor.codeActionsOnSave": {
+    
+    }
+}
+
+进阶配置-----------
+//vue中js格式化，但不自动换行"vetur.format.defaultFormatter.js": "vscode-typescript",
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+
+//html格式化，
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    //vetur插件,html标签的属性是否换行 31-33配合使用
+    "vetur.format.defaultFormatterOptions": {
+        "js-beautify-html": {
+            //超出长度折行
+            "wrap_attributes": "aligned-multiple",
+            //长度限制
+            "wrap_line_length":80
+        }
+    },
+
+
+
+   //cmd服务器打开
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+    //editor.fontSize字体大小，单位像素，默认14
+    "editor.fontSize": 14,
+    //editor.tabSize:tab键表示多少像素，默认4，空格为2
+    "editor.tabSize": 4,
+    //editor.minimap.maxColumn:右侧缩略图宽度，单位像素
+    "editor.minimap.maxColumn": 30,
+    //editor.minimap.scale:缩略图显示比列123
+    "editor.minimap.scale": 1,
+
+
+
+
+
+
+
+
+

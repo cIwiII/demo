@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考试答题</title>
+</head>
+
+<body>
+    <!-- index1导航 -->
+    <div class="index1">
+        <div class="header1 clearfix">
+            <img src="../image/log.png" alt="">
+            <div class="navs">
+                前端第一阶段阶段考试
+            </div>
+            <div class="logreg">
+                <!-- <div class="trans"><a href="">登陆</a></div>
+                    <span>|</span>
+                    <div class="trans"><a href="">注册</a></div> -->
+                <div class="tout">
+                    <img src="" alt="">
+                    <div class="sans">
+                        <div></div>
+                    </div>
+
+                    <ul id="modalul">
+                        <li>
+                            <div type="button" data-toggle="modal" data-target="#uppersondata"> 修改资料</div>
+                        </li>
+                        <li>
+                            <div type="button" data-toggle="modal" data-target="#leaderboard"> 排行榜</div>
+                        </li>
+                        <li id="quit1">退出登录</li>
+
+                    </ul>
+
+                </div>
+                <div class="username">李四</div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!-- 退出登陆模态 -->
+    <div id="quit2">
+        <div class="quitcontent">
+            <h3>是否确认退出</h3>
+            <div>取消</div>
+            <div>确认</div>
+        </div>
+    </div>
+    <!-- 答题 -->
+    <div class="collbody">
+        <div class="th"></div>
+        <div class="collleft">
+            <h3 class="">答题卡</h3>
+
+            <div class="red2">
+                <div>单选</div>
+                <div id="red1">
+                    <!-- 选项 -->
+                    <!--
+                    <div>
+                        <div class="bule">2</div>
+                        <div>44</div>
+                    </div>
+                     -->
+
+
+                </div>
+            </div>
+            <div class="che2">
+                <div>多选</div>
+                <div id="che1">
+                    <!-- 选项 -->
+                    <!-- <div>
+                        <div class="bule">2</div>
+                        <div>44</div>
+                    </div>
+                     -->
+
+                </div>
+            </div>
+
+
+            <br><br><br>
+            <div class="yesorno">
+
+                <div class="bule"></div>
+                <div class="ok">已答</div>
+                <div class="hui"></div>
+                <div class="error">未答</div>
+                <img src="../image/shoucang-s.png" alt="" class="redsc">
+
+                <div class="error">收藏</div>
+
+
+            </div>
+        </div>
+        <div class="collcontent">
+            <div class="radioque">
+                <h3 class="radi">单选题</h3>
+                <div class="radi1">
+                    <!-- 答题 -->
+                    <!-- <div>
+                        <h4><span>1.地界问价</span>
+                            <div class="shous">收藏</div>
+                        </h4>
+                        <ul>
+                            <li><input type="radio" name="name1" id="a1"><label
+                                    for="a1">A.是地方干活</label></li>
+                            <li><input type="radio" name="name1" id="b1"><label
+                                    for="b1">B.是地方干活</label></li>
+                            <li><input type="radio" name="name1" id="c1"><label
+                                    for="c1">C.十二点规范化</label></li>
+                        </ul>
+
+                    </div> -->
+                    <!-- <div>
+                        <h4><span>1.地界问价</span>
+                            <dels></dels>
+                        </h4>
+                        <ul>
+                            <li>A.是地方干活</li>
+                            <li>B.是地方干活</li>
+                            <li>C.十二点规范化</li>
+                        </ul>
+
+
+                    </div> -->
+                </div>
+            </div>
+            <div class="checkboxque">
+                <h3 class="chec">多选题</h3>
+                <div class="chec1">
+                    <!-- <div>
+                        <h4><span>1.地界问价</span>
+                            <dels>12</dels>
+                        </h4>
+                        <ul>
+                            <li>A.是地方干活</li>
+                            <li>B.是地方干活</li>
+                            <li>C.十二点规范化</li>
+                        </ul>
+
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+        <div class="collright">
+            <div class="collright1">
+
+                <div class="testtime">
+                    <p>剩余时间</p>
+                    <p class="collrip">
+                       <strong>
+                            <span class="h"></span>:
+                            <span class="m"></span>:
+                            <span class="s"></span>
+                       </strong>
+                    </p>
+                </div>
+                <hr>
+                <div class="proce">
+                    <p>当前进度</p>
+                    <p><span>3</span>/<span>20</span></p>
+                </div>
+
+
+            </div>
+            <input type="button" class="collright2" value="提交试卷" data-toggle="modal" data-target="#testOk">
+        </div>
+    </div>
+
+    <div class="footer">
+        Copyright@2021成都蜗牛创想科技有限公司
+    </div>
+    <!-- 修改Modal -->
+    <div class="modal" id="uppersondata" tabindex="-1" aria-labelledby="uppersondata1" aria-hidden="true"
+        data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uppersondata1">修改资料</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modaltout">
+                        <div class="">
+                            <img src="" alt="">
+                        </div>
+                        <div class="modalusername">李四</div>
+                        <div>
+                            <small>点击图片修改图像</small>
+                        </div>
+
+                    </div>
+                    <form>
+                        <div>
+                            <label for="uppersondata21">手机号：</label>
+                            <input type="text" class="" id="uppersondata21" aria-describedby="emailHelp21">
+                            <small id="emailHelp21" class="formtext">手机号不可更改</small>
+                        </div>
+                        <div>
+                            <label for="uppersondata22">姓&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+                            <input type="text" class="" id="uppersondata22" aria-describedby="emailHelp22">
+                            <small id="emailHelp22" class="formtext">由字母、数字构成</small>
+                        </div>
+                        <div>
+                            <label for="uppersondata22">姓&nbsp;&nbsp;&nbsp;&nbsp;别：</label>
+                            <div id="uppersondata22">
+                                <input type="radio" id="boy" nama="gender">
+                                <label for="boy">男</label>
+                                <input type="radio" id="girl" nama="gender">
+                                <label for="girl">女</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="uppersondata22">部&nbsp;&nbsp;&nbsp;&nbsp;门：</label>
+                            <select name="" id="uppersondata22">
+                                <option value="">信息中心</option>
+                                <option value="">信息中心</option>
+                                <option value="">信息中心</option>
+                                <option value="">信息中心</option>
+                                <option value="">信息中心</option>
+                            </select>
+
+
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modalfoot">
+                    <button type="button" class="" data-dismiss="modal">取消</button>
+                    <button type="button" class="" data-dismiss="modal">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 排行榜模态 -->
+    <div class="modal" id="leaderboard" tabindex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>名次</th>
+                            <th>考试</th>
+                            <th>成绩</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <!--  -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--试卷提交确认  -->
+    <div class="modal" id="testOk" tabindex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="submit">
+                    <div class="text" id="yeorno">是否现在交卷?</div>
+                    <div class="btn">
+                        <button data-dismiss="modal">取消</button>
+                        <button id="testOk2" data-dismiss="modal">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

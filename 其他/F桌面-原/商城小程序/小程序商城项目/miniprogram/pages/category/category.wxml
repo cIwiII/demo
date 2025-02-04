@@ -1,0 +1,23 @@
+<!--logs.wxml-->
+<view class="category">
+  <scroll-view class="leftMenu" scroll-y="true">
+    <tabs navArr="{{navArr}}" sele="{{sele}}" bindChangeSele="ChangeSele"></tabs>
+  </scroll-view>
+
+  <scroll-view class="rightContent" scroll-y="true">
+    <view wx:for="{{navArr}}" wx:key="_id">
+      <view class="sty0" wx:for="{{item.children}}" wx:for-item="val1" wx:key="_id">
+        <view class="sty1">{{val1.cat_name}}</view>
+        <view wx:for="{{val1.children}}" wx:for-item="val2" wx:key="cat_id">
+          <image class="" src="{{val2.cat_icon}}" mode="widthFix" lazy-load="true" >
+            
+          </image>
+          <view class="sty2">{{val2.cat_name}}</view>
+        </view>
+      </view>
+    </view>
+
+   
+  </scroll-view>
+</view>
+

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        .div {
+            margin: 0 auto;
+            width: 900px;
+        }
+
+        .div2 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+        }
+        tr{
+            line-height: 2.5;
+        }
+        table tr th:nth-child(1),
+        table tr td:nth-child(1) {
+            width: 7%;
+        }
+
+        table tr th:nth-child(2) {
+            width: 7%;
+        }
+
+        table tr th:nth-child(3),
+        table tr td:nth-child(3) {
+            width: 7%;
+        }
+
+        table tr th:nth-child(4),
+        table tr td:nth-child(4) {
+            width: 7%;
+        }
+
+        table tr th:nth-child(5),
+        table tr td:nth-child(5) {
+            width: 15%;
+        }
+
+        table tr th:nth-child(6),
+        table tr td:nth-child(6) {
+            width: 10%;
+        }
+        tbody input{
+            width: 55px;
+        }
+    </style>
+    <script>
+        $(function () {
+            //添加学生课程渲染预选
+            $.ajax({
+                url: '/class',
+                type: 'get',
+                
+                success: function (data) {
+                    // console.log(data.data);
+                    let content = '<option value="null">选择班级</option>';
+                    data.data.forEach(val => {
+                        content += `<option value="${val._id}">${val.name}</option>`
+                    });
+                    $('#sclass').html(content)
+                },
+                
+            });
+            //渲染 
+            function render(data) {
+                let content = '';
+                data.forEach(val => {
+                    let keId, ke;
+                    console.log(val.classId==null)
+                    if (val.classId==null) {
+                        keId = '课程不存在'
+                        ke = '课程不存在'
+                    } else {
+                        keId = val.classId._id
+                        ke = val.classId.name
+                    }
+                    content += `<tr>
+                        <td>${val._id}</td>
+                        <td>${val.name}</td>
+                        <td>${val.age}</td>
+                        <td>${val.gender}</td>
+                        <td>${keId}</td>
+                        <td>${ke}</td>
+                        <td>
+                            <span>删除</span>
+                            <span>修改</span>
+                        </td>
+                </tr>`
+                });
+                $('tbody').html(content);
+            }
+            $.ajax({
+                url: '/students',
+                type: 'get',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                },
+                success: function (data) {
+                    console.log(data.data);
+                    render(data.data);
+                },
+                error: function () {
+                    alert('请先登陆');
+                    location.href='./index.html'
+
+                }
+            });
+            $('tbody').on('click', opercrud);
+            //删改
+            let aclassData;
+            function opercrud(event) {
+                let opeId = event.target.parentElement;
+                let eleTr = event.target.parentElement.parentElement;
+                if (event.target.innerText == '修改') {
+                    eleTr.children[1].innerHTML = `
+                    <input type="text" name="" value="${eleTr.children[1].innerText}">`;
+                    eleTr.children[2].innerHTML = `
+                    <input type="Number" name="" value="${eleTr.children[2].innerText}">`;
+                    let content2;
+                    if (eleTr.children[3].innerText == '男') {
+                        content2 = `
+                        <select name="">
+                            <option selected>男</option> 
+                            <option>女</option>
+                        </select>`
+                    } else {
+                        content2 = `
+                        <select name="">
+                            <option>男</option> 
+                            <option selected>女</option>
+                        </select>`
+                    }
+                    eleTr.children[3].innerHTML = content2;
+                    $.ajax({
+                        url: '/class',
+                        type: 'get',
+
+                        success: function (data) {
+                            // //赋值给外层变量，提交时使用
+                            // aclassData = data.data;
+                            let content = '<option value="null">--选择课程--</option>';
+                            data.data.forEach(val => {
+                                if (eleTr.children[5].innerText == val.name) {
+                                    content += `<option selected value="${val._id}">${val.name}</option>`
+                                } else {
+                                    content += `<option value="${val._id}">${val.name}</option>`
+                                }
+                            });
+                            eleTr.children[5].innerHTML = `
+                                            <select name="" id="">
+                                                ${content}
+                                            </select>
+                                            `;
+                            eleTr.children[5].firstElementChild.onchange = function () {
+                                eleTr.children[4].innerText = this.value;
+                            }
+                        }
+                    })
+                    opeId.innerHTML = `<button>确定</button>`;
+                } else if (event.target.innerText == '确定') {
+                    let id = eleTr.children[0].innerText
+                    let name = eleTr.children[1].firstElementChild.value;
+                    let age = eleTr.children[2].firstElementChild.value;
+                    let gender = eleTr.children[3].firstElementChild.value;
+                    let classId = eleTr.children[4].innerText
+                    // let cl = eleTr.children[5].firstElementChild.value;
+                    //将值转化为对应字符串
+                    // console.log(aclassData);
+                    // cl = aclassData.filter(val => val.id == cl)[0].name
+                    // console.log('执行' + id, name, age, gender, classId, cl)
+                    if(classId=='课程不存在'){
+                        alert('请选择一门课程')
+                    }else{
+                        $.ajax({
+                        url: `/students/${id}/${name}/${age}/${gender}/${classId}`,
+                        type: 'put',
+                        success: function (data) {
+                            alert(data.message);
+                            render(data.data);
+                        }
+                    })
+                    }
+                    
+                } else if (event.target.innerText == '删除') {
+                    let id = eleTr.children[0].innerText;
+                    console.log(id);
+                    $.ajax({
+                        url: `/students/${id}`,
+                        type: 'delete',
+                        success: function (data) {
+                            render(data.data);
+                            // 先删除再显示弹窗
+                            setTimeout(function () {
+                                alert(data.message);
+                            }, 0)
+                        }
+                    })
+                }
+            }
+
+            //添加
+            $('.add').on('click', add)
+            async function add(event) {
+                let vname = $('#sname').val();
+                let vage = $('#sage').val();
+                let vgender = $('#sgender').val();
+                let vclassId = $('#sclass').val();
+                console.log(vname);
+                if (vname.length <= 0) {
+                    alert('不能为空')
+                } else if (Number(vage) == NaN) {
+                    alert('请输入正确的年龄')
+                } else if (vgender == '性别') {
+                    alert('请选择性别')
+                } else if (vclassId == null) {
+                    alert('请选择班级')
+                } else {
+                    $.ajax({
+                        url: `/students/${vname}/${vage}/${vgender}/${vclassId}`,
+                        type: 'post',
+                        success: function (data) {
+                            alert(data.message);
+                            $('.formAdd').get(0).reset();
+                            render(data.data);
+                        }
+                    })
+                }
+            }
+            //查询
+            $('#search').on('input', search())
+            function search() {
+                let timer = null;
+                return function () {
+                    console.log('ok')
+                    if (timer != null) {
+                        clearTimeout(timer);
+                    }
+                    timer = setTimeout(function () {
+                        //返回最新的数据
+                        $.ajax({
+                            url: '/students/',
+                            type: 'get',
+                            success: function (data) {
+                                let str = $('#search').val();
+                                mArr = data.data.filter(val => val.name.includes(str) || val.age.includes(Number(str)) || val.gender.includes(str) || val.classId.name.includes(str));
+                                render(mArr)
+                            }
+                        });
+                    }, 900)
+                }
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="div">
+        <div class="div2">
+            <input type="text" placeholder="输入查询内容" id="search">
+            <form action="" class="formAdd">
+                <input type="text" id="sname" placeholder="请输入姓名">
+                <input type="text" id="sage" placeholder="请输入年龄">
+                <select name="" id="sgender">
+                    <option>性别</option>
+                    <option>男</option>
+                    <option>女</option>
+                </select>
+                <select name="" id="sclass"></select>
+                <button class="add">添加</button>
+            </form>
+        </div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>学号/编号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>班级编号</th>
+                    <th>班级</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

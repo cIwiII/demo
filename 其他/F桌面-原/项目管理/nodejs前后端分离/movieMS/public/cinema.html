@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./javascripts/jquery-3.5.1.min.js"></script>
+    <script>
+        //正在上映渲染
+        function movieshow(data) {
+            let contents = '';
+            data.forEach(val => {
+                contents += `<span>${val.name}</span><br>`
+            });
+            return contents
+        }
+
+        //渲染 
+        function render(data) {
+            let content = '';
+            data.forEach(val => {
+                let mIdName;
+                console.log(val.movieId == null)
+                if (val.movieIdList.length == 0) {
+                    mIdName = '该影院暂无电影上映'
+
+                } else {
+                    mIdName = movieshow(val.movieIdList)
+                }
+                content += `<tr>
+                        <td>${val._id}</td>
+                        <td>${val.name}</td>
+                        <td>${val.address}</td>
+                        <td>${mIdName}</td>
+                        <td>
+                            <span>删除</span>
+                            <span>修改</span>
+                        </td>
+                </tr>`
+            });
+            $('tbody').html(content);
+        }
+        $(function () {
+            $.ajax({
+                url: '/cinema',
+                type: 'get',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                },
+                success: function (data) {
+                    render(data.data);
+                    // console.log(data.data)
+                },
+                error: function () {
+                    alert('请先登陆');
+                    location.href = './log.html'
+
+                }
+            });
+            $('tbody').on('click', depu);
+            function depu(event) {
+                let tdele=event.target.parentElement;
+                let trele=event.target.parentElement.parentElement;
+                let id=trele.children[0].innerText
+                console.log('函数执行')
+                // console.log(event.target)
+                // console.log(event.target.innerHTML)
+                // console.log(event.target.innerText)
+                if (event.target.innerHTML == "删除") {
+                    $.ajax({
+                        url: `/cinema/${id}`,
+                        type: 'delete',
+                        // headers: {
+                        //     Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                        // },
+                        success: function (data) {
+                            alert(data.message)
+                            if (data.code == 200) {
+                                render(data.data);
+                            }
+                        }
+                        /* error: function () {
+                            alert('请先登陆');
+                            location.href = './index.html'
+        
+                        } */
+                    });
+                }else if(event.target.innerHTML == "修改"){
+                    console.log("修改被点击")
+                }
+
+            }
+
+        })
+    </script>
+</head>
+
+<body>
+    <a href="./index.html">返回首页</a>
+    <br><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>影院编号</th>
+                <th>名字</th>
+                <th>地址</th>
+                <th>正在上映</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+
+</body>
+
+</html>

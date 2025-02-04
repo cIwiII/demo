@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./bootstrap-4.6.1-dist/css/bootstrap.min.css">
+  <script src="./bootstrap-4.6.1-dist/js/jquery-3.5.1.min.js"></script>
+  <script src="./bootstrap-4.6.1-dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+  <title>学生管理系统</title>
+  <style>
+    ul {
+      width: 150px;
+      list-style: none;
+      font-size: larger;
+      font-weight: 600;
+      color: rgb(233, 248, 26);
+      text-align: center;
+
+    }
+
+    li {
+      line-height: 50px;
+      border: 2px solid black;
+      background-color: rgb(154, 209, 24);
+    }
+
+    li:hover {
+      background-color: chocolate;
+    }
+
+    .herder {
+      height: 50px;
+      width: 100%;
+      padding: 0 50px;
+      background-color: rgb(226, 53, 53);
+    }
+
+    .logre {
+      padding: 0 20px;
+      height: 50px;
+      float: right;
+      background-color: rgb(78, 177, 78);
+      display: flex;
+      justify-content: center;
+    }
+
+    .logre div {
+      padding: 0 20px;
+      line-height: 30px;
+      font-size: large;
+      color: rgb(7, 7, 7);
+      margin: 10px 10px;
+      text-align: center;
+      background-color: rgb(141, 137, 137);
+      border-radius: 5px;
+    }
+  </style>
+  <script>
+    //注销
+    function offs1() {
+        console.log("注销执行");
+        sessionStorage.removeItem('token');
+        location.href = '';
+      }
+    $(function () {
+      $.ajax({
+        url: `/users`,
+        type: 'get',
+        /* headers: {
+          Authorization: 'Bearer ' + sessionStorage.getItem('token')
+        }, */
+        success: function (data) {
+          // alert(data.message);
+          //是否是登陆状态
+          // console.log(data.data);
+          if ((data.code == 200)) {
+            $('.logre').html(`<div>用户:${data.data.account}您好</div><div id="offs">注销</div>`)
+          } else {
+            $('.logre').html(`<div class="login" type="button" data-toggle="modal" data-target="#login2">登录</div>
+               <div class="regsi" type="button" data-toggle="modal" data-target="#regsi">注册</div>`)
+          }
+          $('#offs').on('click', offs1);
+        }
+      })
+
+
+      //登录
+      $('.modallogin').on('click', submitlog);
+      function submitlog(event) {
+        event.preventDefault();
+        let account = $('#inputId2').val();
+        let password = $('#password22').val();
+        console.log(account, password)
+        $.ajax({
+          url: `/users/${account}/${password}`,
+          type: 'get',
+          success: function (data) {
+            alert(data.message);
+            if (data.code == 200) {
+              sessionStorage.setItem('token', data.data);
+              // localStorage.setItem('token',data.data[0]);
+              location.href = ''
+            }
+          }
+        })
+      }
+      //注册
+      $('.modalregsi').on('click', submitreg);
+      function submitreg(event) {
+        event.preventDefault();
+        let account = $('#inputId3').val();
+        let password = $('#password33').val();
+        console.log(account, password)
+        $.ajax({
+          url: `/users/${account}/${password}`,
+          type: 'post',
+          success: function (data) {
+            alert(data.message);
+          }
+        })
+      }
+      
+    })
+
+  </script>
+</head>
+
+<body>
+  <div class="herder">
+    <div class="logre">
+      <!-- Button trigger modal -->
+      <div class="login" type="button" data-toggle="modal" data-target="#login2">登录</div>
+      <div class="regsi" type="button" data-toggle="modal" data-target="#regsi">注册</div>
+    </div>
+  </div>
+  <div class="navi">
+    <ul>
+      <li><a href="">&nbsp;首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+      <li><a href="./teacher.html">教师管理</a></li>
+      <li><a href="./students.html">学生管理</a></li>
+      <li><a href="./class.html">课程管理</a></li>
+      <li><a href="./grades.html">成绩管理</a></li>
+      <li><a href="./persetting.html">账户管理</a></li>
+      <!-- <li class="lis"></li>
+      <script>
+        $('.lis').on('click',function(event){
+          console.log(event.target.innerText.trim()== '账户管理');
+          
+        })
+      </script> -->
+    </ul>
+  </div>
+  <!-- 登录Modal -->
+  <div class="modal" id="login2" tabindex="-1" aria-labelledby="login3" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="login3">登录</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="inputId2">账号</label>
+              <input type="text" class="form-control" id="inputId2" aria-describedby="emailHelp22">
+              <small id="emailHelp22" class="form-text text-muted">忘记账号？</small>
+            </div>
+            <div class="form-group">
+              <label for="password22">密码</label>
+              <input type="password" class="form-control" id="password22">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="contack22">
+              <label class="form-check-label" for="contack22">我已阅读并同意</label>
+            </div>
+            <button type="submit" class="btn btn-primary modallogin">登录</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+            data-target="#regsi">去注册</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 注册Modal -->
+  <div class="modal" id="regsi" tabindex="-1" aria-labelledby="regsi2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="regsi2">注册</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="inputId3">账号</label>
+              <input type="email" class="form-control" id="inputId3" aria-describedby="emailHelp33">
+              <small id="emailHelp33" class="form-text text-muted">??</small>
+            </div>
+            <div class="form-group">
+              <label for="password33">密码</label>
+              <input type="password" class="form-control" id="password33">
+            </div>
+            <div class="form-group">
+              <label for="password44">确认密码</label>
+              <input type="password" class="form-control" id="password44">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="contack33">
+              <label class="form-check-label" for="contack33">我已阅读并同意</label>
+            </div>
+            <button type="submit" class="btn btn-primary modalregsi">确认注册</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+            data-target="#login2">已有账号：去登录</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

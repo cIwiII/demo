@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影城</title>
+    <link rel="stylesheet" href="./bootstrap-4.6.1-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-4.6.1-dist/js/jquery-3.5.1.min.js"></script>
+    <script src="./bootstrap-4.6.1-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/cinema.min.css">
+    <script>
+        $.ajax({
+            url: 'https://www.fastmock.site/mock/bb4157f45a0b5ffdcb3f6d984517a6c0/woniuMovie/getAllMovies',
+            type: 'get',
+            success: function (data) {
+                var movieTitleArr = data.movies.map(function (val) {
+                    return { id: val.id, title: val.title }
+                });
+                var content = '';
+                console.log(movieTitleArr)
+                for (var index in movieTitleArr) {
+
+                    content += `<option data-v="${movieTitleArr[index].id}">${movieTitleArr[index].title}</option>`
+                }
+                console.log(content)
+                $('#searchList').html(content);
+                $('.btsearch').on('click', function () {
+                    //获取搜索框中的值
+                    var datav = $('.search').val();
+                    var opArr = document.querySelectorAll('#searchList option');
+                    console.log(opArr)
+                    var id
+                    for (var index = 0; index < opArr.length; index++) {
+                        if (opArr[index].innerHTML == datav) {
+                            id = opArr[index].getAttribute('data-v');
+                        }
+                    }
+                    console.log(id);
+                    location.assign(`./movie-details.html?moveId=${id}`)
+                })
+            }
+        })
+    </script>
+    <script>
+        $.ajax({
+            url: 'https://www.fastmock.site/mock/bb4157f45a0b5ffdcb3f6d984517a6c0/woniuMovie/getAllOperas',
+            type: 'get',
+            success: function (data) {
+                //----影院展示--cinema---
+                var optionStr = data.operas.reduce((total, val, index) => total +
+                    `<div class="movie-list">
+                        <div>
+                            <p>${val.name}</p>
+                            <p><small>${val.address}</small></p>
+                            <span>改签</span>
+                            <span>折扣卡</span>
+                        </div>
+                        <div class="buy-tickets">
+                            <div>
+                                <label>23</lable><span>起</span>
+                                    <p><span>24km</span></p>
+                            </div>
+                            <div><a href="./buy-tickets.html?cinema=${val.id}">选座购票</a></div>
+                            </div>
+                    </div>`, '');
+                $('.movie-center').append(optionStr);
+            }
+        })
+        $(function () {
+            var loginAcc = sessionStorage.getItem('loginAcc');
+            if (loginAcc == null) {
+                //未登录
+                document.querySelector('.LandingAndRegistration').innerHTML = `
+                <a href="" class="a1 " data-toggle="modal" data-target="#exampleModal1">登录</a>
+            <a href="" class="a1" data-toggle="modal" data-target="#exampleModal1">注册</a>
+                                                                `
+            } else {
+                //已登录
+                document.querySelector('.LandingAndRegistration').innerHTML = `欢迎${loginAcc}!<a href="javaScript:loginOut()">注销</a>`;
+            }
+        })
+        function loginOut() {
+            sessionStorage.removeItem('loginAcc');
+            location.reload();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="top">
+        <div class="center">
+            <div class="left">下载APP</div>
+            <div class="right LandingAndRegistration">
+                <a href="" class="a1" data-toggle="modal" data-target="#exampleModal1">登录</a>
+                <a href="" class="a1" data-toggle="modal" data-target="#exampleModal1">注册</a>
+            </div>
+        </div>
+    </div>
+    <!-- 注册模态框 -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                role="tab" aria-controls="pills-home" aria-selected="false">登录</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                role="tab" aria-controls="pills-profile" aria-selected="true">注册</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <input type="text" placeholder="请输入手机号" class="in1">
+                            <input type="password" placeholder="请输入密码" class="in2">
+                            <div>
+                                <button>登录</button>
+                            </div>
+                            <div class="a1">
+                                <input type="checkbox" checked>&nbsp; &nbsp; 下次自动登录
+                                <a href="">忘记密码？</a>
+                            </div>
+                            <div class="bor"></div>
+                            <div class="ck1">
+                                <input type="checkbox">
+                                &nbsp; &nbsp;<span>已阅读并同意《服务设计启发式线上工具服务协议》</span>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade show active" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab">
+                            <input type="text" placeholder="请输入手机号">
+                            <input type="password" placeholder="请输入密码">
+                            <input type="password" placeholder="请确认密码">
+                            <div>
+                                <button>立即注册</button>
+                            </div>
+                            <div class="user">
+                                <a>立即登录</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="center">
+            <div class="left">
+                <img src="img/zy_03.png" alt="">
+                <span>全国</span>
+                <div class="icon"></div>
+            </div>
+            <div class="cen">
+                <ul>
+                    <li><a href="./Home-page.html">首页</a></li>
+                    <li><a href="./movie.html">影片</a></li>
+                    <li><a href="./cinema.html">影城</a></li>
+                    <li><a href="./advisorya.html">影城资讯</a></li>
+                    <li><a href="./GR-page.html">会员中心</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <input type="text" class="search" list="searchList" placeholder="佩奇 白蛇2 我是猫">
+                <datalist id="searchList">
+                    <!-- js-option对象 -->
+                </datalist>
+                <button class="bt1 btsearch"></button>
+            </div>
+        </div>
+    </div>
+    <div class="movie-content">
+        <div class="choice">
+            <!-- 筛选 -->
+            <div>
+                <span>品牌：</span>
+                <div class="movie-project">
+                    <div>全部</div>
+                    <div>太平洋电影城</div>
+                    <div>万达影城</div>
+                    <div>星美国际影城</div>
+                    <div>CGV影城</div>
+                    <div>横店影视</div>
+                    <div>橙天嘉禾影城</div>
+                    <div>UME国际影城</div>
+                    <div>保利万和国际影城</div>
+                    <div>卢米埃影城</div>
+                    <div>星光影城</div>
+                    <div>金逸影城</div>
+                    <div>大地影院</div>
+                    <div>百丽宫影城</div>
+                    <div>幸福蓝海国际影城</div>
+                    <div>橙天国际影城</div>
+                    <div>沃美影城</div>
+                </div>
+
+            </div>
+            <div>
+                <span>行政区：</span>
+                <div class="area">
+                    <div>全部</div>
+                    <div>附近地铁</div>
+                    <div>武侯区</div>
+                    <div>双流区</div>
+                    <div>郫都区</div>
+                    <div>新都区</div>
+                    <div>锦江区</div>
+                    <div>成华区</div>
+                    <div>金牛区</div>
+                    <div>龙泉驿区</div>
+                    <div>青羊区</div>
+                    <div>温江区</div>
+                    <div>金堂县</div>
+                    <div>都江堰市</div>
+                    <div>崇州市</div>
+                    <div>彭州市</div>
+                    <div>新津区</div>
+                    <div>青白江区</div>
+                    <div>邛崃市</div>
+                    <div>大邑县</div>
+                    <div>浦江区</div>
+                    <div>简阳市</div>
+                </div>
+
+            </div>
+            <div>
+                <span>特殊厅：</span>
+                <div class="special">
+                    <div>全部</div>
+                    <div>IMAX厅</div>
+                    <div>CGS中国巨幕厅</div>
+                    <div>杜比全景声厅</div>
+                    <div>Dolby Cinema厅</div>
+                    <div>RealD厅</div>
+                    <div>RealD 6FL厅</div>
+                    <div>LUXE巨幕厅</div>
+                    <div>4DX厅</div>
+                    <div>DTS:X临境音厅</div>
+                    <div>D儿童厅</div>
+                    <div>4K厅</div>
+                    <div>4D厅</div>
+                </div>
+
+            </div>
+            <div>
+                <span>服务：</span>
+                <div class="service">
+                    <div>全部</div>
+                    <div>可改签</div>
+                    <div>可退票</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="movie-center">
+            <div class="cast">
+                <div class="bstrong"><b>|</b><strong>演职人员</strong></div>
+                <div class="whole"><i class="fa "></i><span>筛选</span></div>
+            </div>
+            <!-- 内容 -->
+
+            <!-- 影院展示区，在cast后面 -->
+            <!-- <div class="movie-list">
+                <div>
+                    <p>太平洋影城（时代豪庭店）</p>
+                    <p><small>地址：郫都区望丛中路1092号时代豪庭广场3楼,4楼</small></p>
+                    <span>改签</span>
+                    <span>折扣卡</span>
+                </div>
+                <div class="buy-tickets">
+                    <div>
+                        <label>23</lable><span>起</span>
+                            <p><span>24km</span></p>
+                    </div>
+                    <div><a href="./buy-tickets.html">选座购票</a></div>
+                </div>
+            </div> -->
+
+
+
+        </div>
+        <div class="paginal">
+            <!-- 页数 -->
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>...</div>
+            <div>23</div>
+            <div>下一页</div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="center">
+            <div class="top">
+                <div>
+                    <p><a href="">新手上路</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">注册登陆问题</a></h6>
+                    <h6><a href="">用户绑定会员卡问题</a></h6>
+                    <h6><a href="">影票相关问题</a></h6>
+                    <h6><a href="">票价和支付问题</a></h6>
+                    <h6><a href="">取票凭证码和取票问题</a></h6>
+                </div>
+
+                <div>
+                    <p><a href="">购票指南</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">用户购票流程</a></h6>
+                    <h6><a href="">取票观影指南</a></h6>
+                    <h6><a href="">会员卡支付相关说明</a></h6>
+                    <h6><a href="">网银支付相关说明</a></h6>
+                </div>
+                <div>
+                    <p><a href="">会员权益</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">会员订票权益</a></h6>
+                    <h6><a href="">会员积分权益</a></h6>
+                    <h6><a href="">入会资格</a></h6>
+                    <h6><a href="">会员卡折扣说明</a></h6>
+                </div>
+                <div>
+                    <p><a href="">联系我们</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">手机客户端介绍与下载</a></h6>
+                    <h6><a href="">影片信息查询</a></h6>
+                    <h6><a href="">手机自助购票</a></h6> </a></h6>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="bottom">
+        <div>
+            <ul>
+                <li><a href="">公司介绍</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">合作咨询</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">友情链接</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">网站地图</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">站长统计</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">网站声明</a></li>
+                <span class="sp1">-</span>
+                <li><a href="" class="last">帮助中心</a></li>
+
+            </ul>
+            <span>Copyright @ 2021 ed by woniuxy </span>
+        </div>
+    </div>
+
+</body>
+
+</html>

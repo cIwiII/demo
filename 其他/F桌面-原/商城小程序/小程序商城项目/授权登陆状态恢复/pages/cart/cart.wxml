@@ -1,0 +1,59 @@
+<!-- 标题 -->
+<view class="bg">
+    <!-- iconfont目前不提供在线链接，下载他的项目导入到本地项目中在使用css代码 -->
+    <text class="iconfont icon-shouye"></text>
+    <text>管理购物车</text>
+</view>
+<view class="list">
+    <!-- wx:for动态渲染你们购物车商品 -->
+    <view 
+    class="item"
+    wx:for="{{goodsList}}"
+    wx:key="goods_id"
+    >
+        <!-- 复选框 -->
+        <checkbox-group bindchange="singleCheck" data-index="{{index}}">
+            <checkbox value="A" checked="{{item.isActive}}" color="var(--themeColor)"/>
+        </checkbox-group>
+        <!-- 商品的缩略图 -->
+        <image class="" src="{{item.goods_small_logo}}" mode="widthFix">
+            
+        </image>
+        <!-- 文字描述 -->
+        <view class="detail">
+            <view class="text">{{item.goods_name}}</view>
+            <view class="button">正在热销</view>
+            <view class="msg">
+                <!-- 左浮动 -->
+                <view class="price">${{item.goods_price}}</view>
+                <!-- 右浮动 -->
+                <view class="number">
+                    <view class="btn" data-index="{{index}}" data-params="-1" bindtap="changeNumber">-</view>
+                    <view class="ant">
+                        {{item.number}}
+                    </view>
+                    <view class="btn" data-index="{{index}}" data-params="1" bindtap="changeNumber">+</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- <view class="" hover-class="none" hover-stop-propagation="false">
+    
+</view> -->
+
+<!-- 购物车结算 -->
+<view class="bottomBar">
+    <view class="first">
+        <checkbox-group bindchange="checkAll">
+            <checkbox checked="{{checkAllStatus}}" color="var(--themeColor)" />
+        </checkbox-group>
+        <text>全选</text>
+    </view>
+    <view class="total">
+        合计：<text>{{total}}</text>
+    </view>
+    <view class="btn">
+        去结算
+    </view>
+</view>

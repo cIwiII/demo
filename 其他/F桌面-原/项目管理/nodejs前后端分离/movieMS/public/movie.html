@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影</title>
+    <script src="./javascripts/jquery-3.5.1.min.js"></script>
+    <style>
+        #mname,
+        #mdes {
+            width: 50px;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            
+        }
+        
+        p{
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        table {
+            width: 700px;text-align: center;
+        }
+        tbody tr{
+            height: 50px;
+        }
+        table tr th:nth-child(1){
+            width: 225px;
+        }
+        table tr th:nth-child(2){
+            width: 90px;
+        }
+        table tr th:nth-child(3){
+            width: 90px;
+        }
+        table tr th:nth-child(4){
+            width: 180px;
+        }
+        table tr td:nth-child(4){
+            width: 180px;
+            position: relative;
+        }
+        table tr td:nth-child(4):hover img{
+            position: absolute;
+            width: 200px;
+            height: 300px;
+        }
+
+        tbody [type="text"] {
+            width: 80px;
+        }
+
+        tbody [type="file"] {
+            width: 170px;
+        }
+    </style>
+    <script>
+
+        $(function () {
+            //鉴权并渲染
+            $.ajax({
+                url: '/movie',
+                type: 'get',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('token')
+                },
+                success: function (data) {
+                    render(data.data);
+                    // console.log(data.data)
+                },
+                error: function () {
+                    alert('请先登陆');
+                    location.href = './log.html'
+
+                }
+            });
+            //渲染
+            function render(data) {
+                let content = '';
+                data.forEach(val => {
+                    content += `<tr>
+                                <td>${val._id}</td>
+                                <td>${val.name}</td>
+                                <td>${val.description}</td>
+                                <td><img src="http://127.0.0.1:3001/images/${val.img}"></td>
+                                <td>
+                                    <span>删除</span>
+                                    <span>修改</span>
+                                </td>
+                              </tr>`
+                });
+                $('tbody').html(content);
+            }
+            //添加
+            $('#ok').on('click', function (event) {
+                event.preventDefault();
+                let mname = $('#mname').val()
+                let mdes = $('#mdes').val()
+                //获取文件--对象 
+                let file = $('#files').get(0).files[0];
+                //检查文件是否合法
+                if (!file) {
+                    alert('请选择文件');
+                    return
+                }
+                
+                
+                console.log(file.name);
+                console.log(file);
+                console.log($('#files').get(0));
+                //判断是否是指定类型，建立正则
+                let imgReg = /\.(png|jpg|jpeg|gif)$/;
+                if (!imgReg.test(file.name)) {
+                    alert('文件格式不正确，请重新选择');
+                    return
+                }
+                //文件只能以以表单数据上传，建立表单,并添加对象
+                let form = new FormData(); form.append('imgna', file);
+
+                console.log(form)
+                $.ajax({
+                    url: `/movie/${mname}/${mdes}/${file.name}`,
+                    type: 'post',
+                    data: form,
+                    //阻止jquery数据自动格式化处理（以非JSON传输）
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        alert(data.message);
+                        if (data.code == 200) {
+                            location.href = ''
+                        }
+                        // $('.imgs').prop('src', data.data)
+                    }
+                })
+
+            })
+
+
+
+            //删除
+            $('body').on('click', depu);
+            function depu(event) {
+                let opeId = event.target.parentElement;
+                let eleTr = event.target.parentElement.parentElement;
+                
+                if (event.target.innerText == '删除') {
+                    let id = eleTr.children[0].innerText;
+                    $.ajax({
+                        url: `/movie/${id}`,
+                        type: 'delete',
+                        success: function (data) {
+                            render(data.data);
+                            // 先删除再显示弹窗
+                            setTimeout(function () {
+                                alert(data.message);
+                            }, 0)
+                        }
+                    })
+                } else if (event.target.innerText == '修改') {
+                    let id = eleTr.children[0].innerText;
+                    let name = eleTr.children[1].innerText;
+                    let des = eleTr.children[2].innerText;
+                    let imgsrc = $(eleTr.children[3].children[0]).prop('src').split('images/')[1];
+                    eleTr.innerHTML = `
+                    <tr>
+                        <td>${id}</td>
+                        <td><input type="text" value="${name}"></td>
+                        <td><input type="text" value="${des}"></td>
+                        <td><input type="file" >
+                            <p>${imgsrc}</p>
+                            </td>
+                        <td><span>确定</span></td>
+                    </tr>
+                    `
+                } else if (event.target.innerText == '确定') {
+                    let name = eleTr.children[1].children[0].value;
+                    let des = eleTr.children[2].children[0].value;
+                    let id = eleTr.children[0].innerText;
+                    //检查文件是否合法
+                    /* if (!file) {
+                        alert('请选择文件');
+                        return
+                    } */
+                    // console.log(file.name);
+                    // console.log(file);
+                    //判断是否是指定类型，建立正则
+                    let imgname,
+                        file = eleTr.children[3].children[0].files[0];
+                    if (!file) {
+                        // alert('请选择文件');
+                        imgname = eleTr.children[3].children[1].innerText;
+                    } else {
+                        imgname = file.name;
+                        let imgReg = /\.(png|jpg|jpeg|gif)$/;
+                        if (!imgReg.test(imgname)) {
+                            alert('文件格式不正确，请重新选择');
+                            return
+                        }
+                    }
+
+                    //文件只能以以表单数据上传，建立表单,并添加对象
+                    let form = new FormData(); form.append('imgna', file);
+                    console.log(id,name,des,imgname);
+                    console.log('ajax将发送')
+                    $.ajax({
+                        url: `/movie/${id}/${name}/${des}/${imgname}`,
+                        type: 'put',
+                        data: form,
+                        //阻止jquery数据自动格式化处理（以非JSON传输）
+                        contentType: false,
+                        processData: false,
+                        cache: false,
+                        success: function (data) {
+                            alert(data.message);
+                            if(data.code==200){
+                               
+                                location.href = ''
+                            }
+                        }
+                    })
+                }
+            }
+
+        })
+    </script>
+</head>
+
+<body>
+    <a href="./index.html">返回首页</a>
+    <br>
+    <div class="okss">
+        <form class="oks">
+            <span>名字</span><input type="text" id="mname">
+            <span>简介</span><input type="text" id="mdes">
+            <span>上传图片</span><input type="file" id="files">
+            <button id="ok">确认上传</button>
+        </form>
+    </div>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>名字</th>
+                <th>简介</th>
+                <th>图片</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+
+</html>

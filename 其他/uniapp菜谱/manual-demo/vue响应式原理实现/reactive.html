@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const user = {
+            username: "xiaowang",
+            password: 123
+        }
+
+        //  封装一个函数，这个函数负责数据劫持
+        function defineReactive(data, key, value) {
+            Object.defineProperty(data, key, {
+                // 监控是否使用
+                get() {
+                    console.log(`${data}的${key}被使用`);
+                    return value
+                },
+                // 监控是否修val改
+                set(val) {
+                    console.log(`${data}的${key}被修改`);
+                    value = val
+                }
+            })
+        }
+        // 以后只要有一个属性要被接触，调用一下这个函数
+        // defineReactive(user,"username",user.username)
+        // console.log(user.username);
+        // user.username = "xiaofeifei"
+        // 根据user的key来进行循环。
+        Object.keys(user).forEach(key=>{
+            defineReactive(user,key,user[key])
+        })
+
+        console.log(user.password);
+        console.log(user.username);
+
+
+    </script>
+</body>
+
+</html>

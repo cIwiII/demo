@@ -1,0 +1,92 @@
+page {
+  background-color: rgba(230, 228, 225, 0.563);
+}
+.carTitle {
+  line-height: 7vh;
+  padding-left: 20rpx;
+  font-size: 40rpx;
+  color: #fff;
+  background-color: var(--themeColor);
+}
+scroll-view {
+  margin-top: 3vh;
+  height: 78vh;
+}
+scroll-view .cartA {
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #fff;
+  margin: 0 20rpx 20rpx;
+}
+scroll-view .cartA input {
+  width: 15%;
+  height: 30rpx;
+  padding: 40rpx;
+  background-color: aquamarine;
+}
+scroll-view .cartA .img {
+  width: 20%;
+  height: 30rpx;
+  margin: 20rpx 0;
+}
+scroll-view .cartA .right {
+  width: 60%;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+scroll-view .cartA .right .text {
+  font-size: 24rpx;
+  color: black;
+  text-align: center;
+  height: 66rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+scroll-view .cartA .right .redborder {
+  border: 2rpx solid red;
+  border-radius: 8rpx;
+  margin: 30rpx 0;
+}
+scroll-view .cartA .right .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+scroll-view .cartA .right .bottom .center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+scroll-view .cartA .right .bottom .center view {
+  width: 50rpx;
+  text-align: center;
+  background-color: #b4b1af;
+}
+scroll-view .cartA .right .bottom .center span {
+  width: 30rpx;
+}
+scroll-view .cartA .right .bottom .red {
+  color: red;
+}
+.allChiose {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  padding: 0 20rpx;
+  justify-content: space-between;
+  background-color: #fff;
+  margin-top: 2vh;
+}
+.allChiose .totalPriceColor {
+  color: red;
+}
+.allChiose .accounts {
+  background-color: #f0a731;
+  padding: 20rpx 30rpx;
+  border-radius: 8rpx;
+}

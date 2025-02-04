@@ -1,0 +1,15 @@
+页面跳转
+一、
+var newWin=window.open('https://www.baidu.com');
+二、
+location.assign('05-Location.html');
+三、
+location.replace('05-Location.html');
+四、
+a标签 href
+五、
+表单提交时的action地址
+六、
+var url=location.href;
+console.log(url);
+location.href='https://www.woniuxy.com';

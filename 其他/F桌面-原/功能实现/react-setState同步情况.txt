@@ -1,0 +1,24 @@
+1、同步--------------
+state = {
+    number:1
+};
+componentDidMount(){
+    setTimeout(()=>{定时器同理
+      this.setState({number:3})
+      console.log(this.state.number)
+    },0)
+}
+
+2、同步--------------------
+state = {
+    number:1
+};
+componentDidMount() {
+    document.body.addEventListener('click', this.changeVal, false);
+}
+changeVal = () => {
+    this.setState({
+      number: 3
+    })
+    console.log(this.state.number)
+}

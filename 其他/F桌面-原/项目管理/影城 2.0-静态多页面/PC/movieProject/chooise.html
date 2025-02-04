@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./bootstrap-4.6.1-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-4.6.1-dist/js/jquery-3.5.1.min.js"></script>
+    <script src="./bootstrap-4.6.1-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/chooise.css">
+    <script src="./js/chooise.js"></script>
+</head>
+
+<body>
+
+    <div class="top">
+        <div class="center">
+            <div class="left">下载APP</div>
+            <div class="right LandingAndRegistration">
+                <a href="" class="a1" data-toggle="modal" data-target="#exampleModal1">登录</a>
+                <a href="" class="a1" data-toggle="modal" data-target="#exampleModal1">注册</a>
+            </div>
+        </div>
+    </div>
+    <!-- 注册模态框 -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                role="tab" aria-controls="pills-home" aria-selected="false">登录</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                role="tab" aria-controls="pills-profile" aria-selected="true">注册</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <input type="text" placeholder="请输入手机号" class="in1">
+                            <input type="password" placeholder="请输入密码" class="in2">
+                            <div>
+                                <button>登录</button>
+                            </div>
+                            <div class="a1">
+                                <input type="checkbox" checked>&nbsp; &nbsp; 下次自动登录
+                                <a href="">忘记密码？</a>
+                            </div>
+                            <div class="bor"></div>
+                            <div class="ck1">
+                                <input type="checkbox">
+                                &nbsp; &nbsp;<span>已阅读并同意《服务设计启发式线上工具服务协议》</span>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade show active" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab">
+                            <input type="text" placeholder="请输入手机号">
+                            <input type="password" placeholder="请输入密码">
+                            <input type="password" placeholder="请确认密码">
+                            <div>
+                                <button>立即注册</button>
+                            </div>
+                            <div class="user">
+                                <a >立即登录</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="center">
+            <div class="left">
+                <img src="./images/zy_03.png" alt="">
+                <span>全国</span>
+                <div class="icon"></div>
+            </div>
+            <div class="cen">
+                <ul>
+                    <li><a href="./Home-page.html">首页</a></li>
+                    <li><a href="./movie.html">影片</a></li>
+                    <li><a href="./cinema.html">影城</a></li>
+                    <li><a href="./advisorya.html">影城资讯</a></li>
+                    <li><a href="./GR-page.html">会员中心</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <input type="text" class="search" list="searchList" placeholder="佩奇 白蛇2 我是猫">
+                <datalist id="searchList">
+                        <!-- js-option对象 -->
+                </datalist>
+                <button class="bt1 btsearch"></button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="content">
+        <!-- 进度条 -->
+        <div class="item">
+            <div class="pill">
+                <ul class="item-1">
+                    <li class="one">1</li>
+                    <li class="two"></li>
+                    <li class="one">2</li>
+                    <li class="three"></li>
+                    <li class="four"></li>
+                    <li class="one">3</li>
+                    <li class="seven"></li>
+                    <li class="one">4</li>
+                </ul>
+
+                <ul class="item-2">
+                    <li class="five">选择影片场次</li>
+                    <li class="five">选择座位</li>
+                    <li class="six">15内分钟付款</li>
+                    <li class="six">影院取票观影</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 正文 -->
+        <div class="item-pill">
+            <!-- 选座位，沙发 -->
+            <div class="box">
+                <div class="seat">
+                    <div class="seat-big">
+                        <!-- <div class="seat-first"> -->
+                        <ul>
+                            <li>
+                                <img src="./images/购票-选座-未选_03.png" alt="">
+                                可选座位
+                            </li>
+                            <li>
+                                <img src="./images/购票-选座-未选_05.png" alt="">
+                                已售座位
+                            </li>
+                            <li>
+                                <img src="./images/购票-选座-未选_07.png" alt="">
+                                已选座位
+                            </li>
+                        </ul>
+                        <!-- </div> -->
+
+                        <div class="seat-secound">
+                            <div class="first"></div>
+                            <div class="last"></div>
+                        </div>
+
+                        <div class="seat-three">
+                            银幕中央
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- 座位 -->
+                <div class="sitting">
+
+                    <div class="line"></div>
+
+                    <div class="c-top">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                        <!-- 第一排 -->
+                        <div class="def b-red" row="1" col="1"></div>
+                        <div class="def b-red" row="1" col="2"></div>
+                        <div class="def b-red" row="1" col="3"></div>
+                        <div class="def b-red" row="1" col="4"></div>
+                        <div class="def b-red" row="1" col="5"></div>
+                        <div class="def b-red" row="1" col="6"></div>
+                        <div class="def b-red" row="1" col="7"></div>
+                        <div class="def b-red" row="1" col="8"></div>
+                        <div class="def b-red" row="1" col="9"></div>
+                        <div class="def b-red" row="1" col="10"></div>
+                        <div class="def b-red" row="1" col="11"></div>
+                        <div class="def b-red" row="1" col="12"></div>
+                        <div class="def b-red" row="1" col="13"></div>
+                        <div class="def b-red" row="1" col="14"></div>
+                        <div class="def b-red" row="1" col="15"></div>
+                        <div class="def b-red" row="1" col="16"></div>
+
+                        <!-- 第二排 -->
+                        <div class="def b-red" row="2" col="1"></div>
+                        <div class="def b-red" row="2" col="2"></div>
+                        <div class="def b-red" row="2" col="3"></div>
+                        <div class="def b-red" row="2" col="4"></div>
+                        <div class="def b-red" row="2" col="5"></div>
+                        <div class="def b-red" row="2" col="6"></div>
+                        <div class="def b-red" row="2" col="7"></div>
+                        <div class="def b-red" row="2" col="8"></div>
+                        <div class="def b-red" row="2" col="9"></div>
+                        <div class="def b-red" row="2" col="10"></div>
+                        <div class="def b-red" row="2" col="11"></div>
+                        <div class="def b-red" row="2" col="12"></div>
+                        <div class="def b-red" row="2" col="13"></div>
+                        <div class="def b-red" row="2" col="14"></div>
+                        <div class="def b-red" row="2" col="15"></div>
+                        <div class="def b-red" row="2" col="16"></div>
+
+                        <!-- 第三排 -->
+                        <div class="def b-red" row="3" col="1"></div>
+                        <div class="def b-red" row="3" col="2"></div>
+                        <div class="def b-red" row="3" col="3"></div>
+                        <div class="def b-red" row="3" col="4"></div>
+                        <div class="def b-white" row="3" col="5"></div>
+                        <div class="def b-white" row="3" col="6"></div>
+                        <div class="def b-white" row="3" col="7"></div>
+                        <div class="def b-white" row="3" col="8"></div>
+                        <div class="def b-white" row="3" col="9"></div>
+                        <div class="def b-white" row="3" col="10"></div>
+                        <div class="def b-white" row="3" col="11"></div>
+                        <div class="def b-white" row="3" col="12"></div>
+                        <div class="def b-red" row="3" col="13"></div>
+                        <div class="def b-red" row="3" col="14"></div>
+                        <div class="def b-red" row="3" col="15"></div>
+                        <div class="def b-red" row="3" col="16"></div>
+
+                        <!-- 第四排 -->
+                        <div class="def b-white" row="4" col="1"></div>
+                        <div class="def b-white" row="4" col="2"></div>
+                        <div class="def b-white" row="4" col="3"></div>
+                        <div class="def b-white" row="4" col="4"></div>
+                        <div class="def b-white" row="4" col="5"></div>
+                        <div class="def b-white" row="4" col="6"></div>
+                        <div class="def b-white" row="4" col="7"></div>
+                        <div class="def b-white" row="4" col="8"></div>
+                        <div class="def b-white" row="4" col="9"></div>
+                        <div class="def b-white" row="4" col="10"></div>
+                        <div class="def b-white" row="4" col="11"></div>
+                        <div class="def b-white" row="4" col="12"></div>
+                        <div class="def b-white" row="4" col="13"></div>
+                        <div class="def b-white" row="4" col="14"></div>
+                        <div class="def b-white" row="4" col="15"></div>
+                        <div class="def b-white" row="4" col="16"></div>
+
+                        <!-- 第五排 -->
+                        <div class="def b-white" row="5" col="1"></div>
+                        <div class="def b-white" row="5" col="2"></div>
+                        <div class="def b-white" row="5" col="3"></div>
+                        <div class="def b-white" row="5" col="4"></div>
+                        <div class="def b-white" row="5" col="5"></div>
+                        <div class="def b-white" row="5" col="6"></div>
+                        <div class="def b-white" row="5" col="7"></div>
+                        <div class="def b-white" row="5" col="8"></div>
+                        <div class="def b-white" row="5" col="9"></div>
+                        <div class="def b-white" row="5" col="10"></div>
+                        <div class="def b-white" row="5" col="11"></div>
+                        <div class="def b-white" row="5" col="12"></div>
+                        <div class="def b-white" row="5" col="13"></div>
+                        <div class="def b-white" row="5" col="14"></div>
+                        <div class="def b-white" row="5" col="15"></div>
+                        <div class="def b-white" row="5" col="16"></div>
+
+                    </div>
+
+                    <div class="c-two">
+                        <ul>
+                            <li>6</li>
+                            <li>7</li>
+                            <li>8</li>
+                            <li>9</li>
+                            <li>10</li>
+                            <li>11</li>
+                            <li>12</li>
+                        </ul>
+
+                        <div class="c-left">
+                            <!-- 第六排 -->
+                            <div class="def b-white" row="6" col="1"></div>
+                            <div class="def b-white" row="6" col="2"></div>
+                            <div class="def b-white" row="6" col="3"></div>
+                            <div class="def b-white" row="6" col="4"></div>
+                            <div class="def b-white" row="6" col="5"></div>
+                            <div class="def b-white" row="6" col="6"></div>
+
+
+                            <!-- 第七排 -->
+                            <div class="def b-white" row="7" col="1"></div>
+                            <div class="def b-white" row="7" col="2"></div>
+                            <div class="def b-white" row="7" col="3"></div>
+                            <div class="def b-white" row="7" col="4"></div>
+                            <div class="def b-white" row="7" col="5"></div>
+                            <div class="def b-white" row="7" col="6"></div>
+
+                            <!-- 第八排 -->
+                            <div class="def b-white" row="8" col="1"></div>
+                            <div class="def b-white" row="8" col="2"></div>
+                            <div class="def b-white" row="8" col="3"></div>
+                            <div class="def b-white" row="8" col="4"></div>
+                            <div class="def b-white" row="8" col="5"></div>
+                            <div class="def b-white" row="8" col="6"></div>
+
+                            <!-- 第九排 -->
+                            <div class="def b-white" row="9" col="1"></div>
+                            <div class="def b-white" row="9" col="2"></div>
+                            <div class="def b-white" row="9" col="3"></div>
+                            <div class="def b-white" row="9" col="4"></div>
+                            <div class="def b-white" row="9" col="5"></div>
+                            <div class="def b-white" row="9" col="6"></div>
+
+                            <!-- 第十排 -->
+                            <div class="def b-white" row="10" col="1"></div>
+                            <div class="def b-white" row="10" col="2"></div>
+                            <div class="def b-white" row="10" col="3"></div>
+                            <div class="def b-white" row="10" col="4"></div>
+                            <div class="def b-white" row="10" col="5"></div>
+                            <div class="def b-white" row="10" col="6"></div>
+
+                            <!-- 第十一排 -->
+                            <div class="def b-white" row="11" col="1"></div>
+                            <div class="def b-white" row="11" col="2"></div>
+                            <div class="def b-white" row="11" col="3"></div>
+                            <div class="def b-white" row="11" col="4"></div>
+                            <div class="def b-white" row="11" col="5"></div>
+                            <div class="def b-white" row="11" col="6"></div>
+
+                        </div>
+
+                        <div class="c-right">
+                            <!-- 第六排 -->
+                            <div class="def b-white" row="6" col="7"></div>
+                            <div class="def b-white" row="6" col="8"></div>
+                            <div class="def b-white" row="6" col="9"></div>
+                            <div class="def b-white" row="6" col="10"></div>
+                            <div class="def b-white" row="6" col="11"></div>
+
+
+                            <!-- 第七排 -->
+                            <div class="def b-white" row="7" col="7"></div>
+                            <div class="def b-white" row="7" col="8"></div>
+                            <div class="def b-white" row="7" col="9"></div>
+                            <div class="def b-white" row="7" col="10"></div>
+                            <div class="def b-white" row="7" col="11"></div>
+
+                            <!-- 第八排 -->
+                            <div class="def b-white" row="8" col="7"></div>
+                            <div class="def b-white" row="8" col="8"></div>
+                            <div class="def b-white" row="8" col="9"></div>
+                            <div class="def b-white" row="8" col="10"></div>
+                            <div class="def b-white" row="8" col="11"></div>
+                            <!-- <div class="def b-white" row="8" col="12"></div> -->
+
+                            <!-- 第九排 -->
+                            <div class="def b-white" row="9" col="7"></div>
+                            <div class="def b-white" row="9" col="8"></div>
+                            <div class="def b-white" row="9" col="9"></div>
+                            <div class="def b-white" row="9" col="10"></div>
+                            <div class="def b-white" row="9" col="11"></div>
+
+                            <!-- 第十排 -->
+                            <div class="def b-white" row="10" col="7"></div>
+                            <div class="def b-white" row="10" col="8"></div>
+                            <div class="def b-white" row="10" col="9"></div>
+                            <div class="def b-white" row="10" col="10"></div>
+                            <div class="def b-white" row="10" col="11"></div>
+
+                            <!-- 第十一排 -->
+                            <div class="def b-white" row="11" col="7"></div>
+                            <div class="def b-white" row="11" col="8"></div>
+                            <div class="def b-white" row="11" col="9"></div>
+                            <div class="def b-white" row="11" col="10"></div>
+                            <div class="def b-white" row="11" col="11"></div>
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="c-bottom">
+                        <!-- 第十二排 -->
+                        <div class="c-last">
+                            <div class="def b-white" row="12" col="1"></div>
+                            <div class="def b-white" row="12" col="2"></div>
+                            <div class="def b-white" row="12" col="3"></div>
+                        </div>
+
+                        <div class="c-last-2">
+                            <div class="def b-white" row="12" col="4"></div>
+                            <div class="def b-white" row="12" col="5"></div>
+                            <div class="def b-white" row="12" col="6"></div>
+                            <div class="def b-white" row="12" col="7"></div>
+                            <div class="def b-white" row="12" col="8"></div>
+                            <div class="def b-white" row="12" col="9"></div>
+                            <div class="def b-white" row="12" col="10"></div>
+                            <div class="def b-white" row="12" col="11"></div>
+                        </div>
+
+                    </div>
+                   
+                    
+                </div>
+
+
+            </div>
+            <!-- 选中的电影 -->
+            <div class="box2">
+                <!-- 电影详情 -->
+                <div class="one">
+                    <div class="detailed">
+                        <img src="" alt="" class="summer">
+                        <div class="time">
+                            <!-- <div class="time-1">
+                                <h5>盛夏未来</h5>
+                            </div>
+                            <div class="time-2">
+                                类型：
+                            </div>
+                            <div class="time-2">
+                                时长：
+                            </div>
+                            <div class="time-2">
+                                地区：
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="detailed-2">
+                        <!-- <div class="box-2">影院：</div>
+                        <div class="box-2">影厅：</div>
+                        <div class="box-2">版本：</div>
+                        <div class="box-2">场次：</div>
+                        <div class="box-2">票价：</div> -->
+                    </div>
+
+
+
+                </div>
+                <!-- 手机号输入 -->
+                <div class="three">
+                    <div class="two">
+                        <div>座位：一次最多选5个座位</div>
+                        <div class="please">
+                            <p>请点击左侧座位图选择座位</p>
+                            <p><strong>您选中座位:</strong></p>
+                            <div class="Seating"></div>
+                        </div>
+                        
+                        <div class="money">总价：￥0</div>
+                    </div>
+                    <div class="four">
+                        <div class="input-box">
+                            <input class="tel" type="text" placeholder="输入手机号" id="user" onchange="userCheck()">
+                        </div>
+                        <div class="input-box">
+                            <input class="tel" type="text" placeholder="填写验证码             获取验证码" id="user"
+                                onchange="userCheck()">
+                                <!--  -->
+                        </div>
+                        <input class="yes" id="yes" type="submit" value="确认选座">
+                       
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="center">
+            <div class="top">
+                <div>
+                    <p><a href="">新手上路</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">注册登陆问题</a></h6>
+                    <h6><a href="">用户绑定会员卡问题</a></h6>
+                    <h6><a href="">影票相关问题</a></h6>
+                    <h6><a href="">票价和支付问题</a></h6>
+                    <h6><a href="">取票凭证码和取票问题</a></h6>
+                </div>
+
+                <div>
+                    <p><a href="">购票指南</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">用户购票流程</a></h6>
+                    <h6><a href="">取票观影指南</a></h6>
+                    <h6><a href="">会员卡支付相关说明</a></h6>
+                    <h6><a href="">网银支付相关说明</a></h6>
+                </div>
+                <div>
+                    <p><a href="">会员权益</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">会员订票权益</a></h6>
+                    <h6><a href="">会员积分权益</a></h6>
+                    <h6><a href="">入会资格</a></h6>
+                    <h6><a href="">会员卡折扣说明</a></h6>
+                </div>
+                <div>
+                    <p><a href="">联系我们</a></p>
+                    <div class="bor"></div>
+                    <h6><a href="">手机客户端介绍与下载</a></h6>
+                    <h6><a href="">影片信息查询</a></h6>
+                    <h6><a href="">手机自助购票</a></h6> </a></h6>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="bottom">
+        <div>
+            <ul>
+                <li><a href="">公司介绍</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">合作咨询</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">友情链接</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">网站地图</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">站长统计</a></li>
+                <span class="sp1">-</span>
+                <li><a href="">网站声明</a></li>
+                <span class="sp1">-</span>
+                <li><a href="" class="last">帮助中心</a></li>
+
+            </ul>
+            <span>Copyright @ 2021 ed by woniuxy </span>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!-- pages/home/home.wxml -->
+<view class="inputBox">
+  <input type="text" placeholder="请输入关键字" />
+</view>
+
+<swiper
+  class="anction"
+  indicator-dots="true"
+  indicator-color="#10239e"
+  indicator-active-color="#b37feb"
+  autoplay="true"
+  interval="2000"
+  circular="true"
+>
+  <swiper-item wx:for="{{swiperArr}}" wx:key="id">
+    <image mode="widthFix" src="{{item.imgpath}}"></image>
+  </swiper-item>
+</swiper>
+<view class="icon8">
+  <view wx:for="{{listArr}}" wx:key="id" class="inblock">
+    <image mode="widthFix" src="{{item.imgpath}}"></image>
+    <view>{{item.title}}</view>
+  </view>
+</view>
+<view class="hi">热门推荐</view>
+<scroll-view class="scroll" scroll-y="true">
+  <image wx:for="{{scrollArr}}" mode="widthFix" src="{{item.imgpath}}" wx:key="id"></image>
+</scroll-view>

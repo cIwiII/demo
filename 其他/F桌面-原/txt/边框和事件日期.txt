@@ -1,0 +1,114 @@
+
+
+————————————————
+
+
+区别
+1.  keydown不区分大小写，keypress会区分大小写;
+2.  keydown先被触发执行，keypress后被触发执行;
+3.  keydown会捕获系统功能键，keypress不捕获系统功能键;
+
+focus/blur获得失去焦点
+reset表单重置
+event.stopPropagation()阻止事件传播（不包含当前）
+event.stopImmediatePropagation()立即阻止
+event.preventDefault()阻止默认行为如表单和超链接
+
+border-style
+none	定义无边框。
+hidden	与 "none" 相同。不过应用于表时除外，对于表，hidden 用于解决边框冲突。
+dotted	定义点状边框。在大多数浏览器中呈现为实线。
+dashed	定义虚线。在大多数浏览器中呈现为实线。
+solid	定义实线。
+double	定义双线。双线的宽度等于 border-width 的值。
+groove	定义 3D 凹槽边框。其效果取决于 border-color 的值。
+ridge	定义 3D 垄状边框。其效果取决于 border-color 的值。
+inset	定义 3D inset 边框。其效果取决于 border-color 的值。
+outset	定义 3D outset 边框。其效果取决于 border-color 的值。
+inherit	规定应该从父元素继承边框样式
+
+-------------------------------------------------
+
+
+innerHTML则是DOM页面元素的一个属性，代表该元素的html内容。你可以精确到某一个具体的元素来进行更改。如果想修改document的内容，则需要修改document.documentElement.innerElement。
+
+解决write（）清除原文本的方法
+ document.open("text/html","replace");//加上
+    document.writeln(txt1);
+    document.write(txt2);
+    document.close();//加上
+
+console.log() 用法也可以像 C 语言用 %s 来使用变量：
+var hello = 'hello';
+var one = 1;
+console.log('%s world', hello)
+console.log('%d + 1 = 3', one)
+
+
+
+
+
+constructor 属性返回所有 JavaScript 变量的构造函数
+"John".constructor   // 返回函数 String()  { [native code] }
+
+一元运算符 +
+Operator + 可用于将变量转换为数字：
+
+实例
+var y = "5";      // y 是一个字符串
+var x = + y;      // x 是一个数字
+
+尝试一下 ?
+如果变量不能转换，它仍然会是一个数字，但值为 NaN (是一个数字):
+
+实例
+var y = "John";   // y 是一个字符串
+var x = + y;      // x 是一个数字 (NaN)
+
+
+将日期转换为数字
+全局方法 Number() 可将日期转换为数字（时间戳）。
+
+d = new Date();
+Number(d)          // 返回 1404568027739
+日期方法 getTime() 也有相同的效果。
+
+d = new Date();
+d.getTime()        // 返回 1404568027739
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

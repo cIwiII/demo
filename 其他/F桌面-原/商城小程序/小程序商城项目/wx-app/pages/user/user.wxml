@@ -1,0 +1,23 @@
+<view class="container">
+    <view class="userInfo">
+        <!-- 没有登录成功的时候，默认的布局样式 -->
+        <block wx:if="{{!hasUserInfo}}">
+            <image 
+                bindtap="login"
+                class="" 
+                src="https://woniumd.oss-cn-hangzhou.aliyuncs.com/web/xuchaobo/20210801185911.png" 
+                mode="widthFix">   
+            </image>
+            <text>点击头像登录</text>
+        </block>
+        <!-- 登录成功后的布局样式 -->
+        <block wx:else>
+            <image 
+                class="" 
+                src="{{userInfo.avatarUrl}}" 
+                mode="widthFix">   
+            </image>
+            <text>{{userInfo.nickName}}</text>
+        </block>
+    </view>
+</view>
